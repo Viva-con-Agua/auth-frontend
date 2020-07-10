@@ -1,5 +1,5 @@
 module.exports = {
   publicPath: process.env.NODE_ENV === 'production'
-    ? '/auth/'
-    : '/auth/'
+    ? process.env.VUE_APP_CONTEXT
+    : '/'
 }

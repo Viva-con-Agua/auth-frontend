@@ -21,9 +21,15 @@ var router = new Router({
    // mode: 'history',
     routes: [
         {
-            path: '/signin',
-            name: 'signin',
-            component: () => import('./views/SignIn.vue'),
+            path: '/',
+            name: 'default',
+            component: () => import('./views/Default.vue'),
+        },
+        {
+            path: '/confirm/:token',
+            name: 'confirm',
+            component: () => import('./views/Confirm.vue'),
+            props: true,
         }
     ]
 })
