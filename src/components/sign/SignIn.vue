@@ -17,13 +17,13 @@
             </vca-input>
         </vca-field>
         <button v-if="login"
-            class="vca-button-primary button"
-            @click.prevent="signout">
+                class="vca-button-primary button"
+                @click.prevent="signout">
             options.signout
         </button>
         <button v-if="!login"
-            class="vca-button-primary button"
-            @click.prevent="validate">
+                class="vca-button-primary button"
+                @click.prevent="validate">
             options.signin
         </button>
         <div v-if="eState === 'credential_error'">
@@ -49,12 +49,9 @@ export default {
                 email: '',
                 password: ''
             },
-            
-            
-                headers: {
-                    'Connection': 'keep-alive',
-                    'Content-Type': 'application/json'
-                },
+            headers: {
+                'Content-Type': 'application/json'
+            },
         }
     },
     validations: {
@@ -69,16 +66,15 @@ export default {
         }
     },
     mounted () {
-        axios.create({ withCredentials: true, })
         axios.defaults.withCredentials = true
         axios.get(process.env.VUE_APP_BACKEND_URL + '/auth/current', { headers: this.headers  } )
-                .then(response => {
-                    this.login = true
-                    console.log(response)
-                })
-                .catch (error => {
-                    console.log(error)
-                })
+            .then(response => {
+                this.login = true
+                console.log(response)
+            })
+            .catch (error => {
+                console.log(error)
+            })
 
     },
     methods: {
