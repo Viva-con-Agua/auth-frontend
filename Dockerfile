@@ -15,7 +15,7 @@ COPY . .
 # build app for production with minification
 RUN npm run build
 
-FROM nginx:1.13.12-alpine as production-stage
+FROM nginx as production-stage
 COPY --from=build-stage /app/dist /usr/share/nginx/html/auth
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
