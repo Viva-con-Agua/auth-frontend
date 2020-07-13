@@ -11,6 +11,7 @@
             <vca-input
                 ref="email"
                 errorMsg="Bitte Passwort eingeben"
+                type="password"
                 placeholder="Passwort"
                 v-model.trim="credentials.password" 
                 :rules="$v.credentials.password">
@@ -87,6 +88,8 @@ export default {
             }
         },
         submit() {
+
+            axios.defaults.withCredentials = true
             axios.post(process.env.VUE_APP_BACKEND_URL + '/auth/signin', this.credentials,  {headers: this.headers })
                 .then(response => {
                     this.login = true
