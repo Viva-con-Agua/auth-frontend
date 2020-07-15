@@ -106,13 +106,7 @@ export default {
                 })
         },
         newMail() {
-            axios.post(process.env.VUE_APP_BACKEND_URL + '/auth/signup/token', {'email': this.credentials.email}, {withCredentials: true})
-                .then(response => {
-                    console.log(response)
-                })
-                .catch(error => {
-                    console.log(error)
-                })
+            this.$router.push({ name: 'newToken', params: { emailP: this.credentials.email } })
         },
         signout() {
             axios.get(process.env.VUE_APP_BACKEND_URL + '/auth/signout', { headers: this.headers  } )

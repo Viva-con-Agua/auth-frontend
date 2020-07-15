@@ -30,6 +30,12 @@ var router = new Router({
             name: 'confirm',
             component: () => import('./views/Confirm.vue'),
             props: true,
+        },
+        {
+            path: '/newtoken',
+            name: 'newToken',
+            component: () => import('./views/NewToken.vue'),
+            props: true,
         }
     ]
 })

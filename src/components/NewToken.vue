@@ -22,17 +22,25 @@ import axios from 'axios'
 import { required, email } from 'vuelidate/lib/validators'
 export default {
     name: 'NewToken',
+    props: {
+        emailP: {
+            type: String,
+            default: ''
+        }
+    },
     data() {
         return {
-                login: false,
-                email: ''
-            }
+            email: ''
+        }
     },
     validations: {
-            email: {
-                required,
-                email
-            }
+        email: {
+            required,
+            email
+        }
+    },
+    mounted() {
+        this.email = this.emailP
     },
     methods: {
         validate() {
