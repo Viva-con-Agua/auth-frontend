@@ -34,7 +34,9 @@ export default {
                     
         axios.get(process.env.VUE_APP_BACKEND_URL + '/auth/signup/confirm/' + this.token, this.credentials)
                 .then(response => {
-                    this.text = response.data
+                    if (response.status === 200 ){
+                        this.$router.push({name: 'default'})
+                    }
                 })
                 .catch(error => {
                     this.text = error

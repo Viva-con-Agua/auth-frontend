@@ -70,8 +70,9 @@ export default {
         axios.defaults.withCredentials = true
         axios.get(process.env.VUE_APP_BACKEND_URL + '/auth/current', { headers: this.headers  } )
             .then(response => {
-                this.login = true
-                console.log(response)
+                if( response.status === 200 ) {
+                    window.location.href = '/drops'
+                }
             })
             .catch (error => {
                 console.log(error)
@@ -92,8 +93,9 @@ export default {
             axios.defaults.withCredentials = true
             axios.post(process.env.VUE_APP_BACKEND_URL + '/auth/signin', this.credentials,  {headers: this.headers })
                 .then(response => {
-                    this.login = true
-                    console.log(response)
+                    if (response.status === 200 ) {
+                        window.location.href = '/drops'
+                    }
                 })
                 .catch(error => {
                     if(error.response.status === 401) {

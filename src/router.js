@@ -36,7 +36,14 @@ var router = new Router({
             name: 'newToken',
             component: () => import('./views/NewToken.vue'),
             props: true,
+        },
+        {
+            path: '/admin',
+            name: 'admin',
+            component: () => import('./views/Admin.vue'),
+            props: true,
         }
+
     ]
 })
 
