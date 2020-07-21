@@ -1,5 +1,7 @@
 <template>
+    
     <div id="content">
+<navigation-widget name="pool2" nav="pool-auth"></navigation-widget>
       <router-view/>
     </div>
 </template>
