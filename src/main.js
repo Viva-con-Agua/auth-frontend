@@ -7,6 +7,9 @@ import 'vca-ui/dist/vca-ui.css'
 
 Vue.use(Vuelidate)
 Vue.use(VcaUi)
+//Vue.config.ignoredElements = [
+//  'navigation-widget'
+//]
 Vue.config.productionTip = false
 new Vue({
     router,

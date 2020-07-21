@@ -1,10 +1,12 @@
 <template>
     <div id="content">
+    <navigation-widget></navigation-widget>
       <router-view/>
     </div>
 </template>
 
 <script>
+//let NavigationWidget = window.NavigationWidget;
 export default {
   name: 'App'
 }
