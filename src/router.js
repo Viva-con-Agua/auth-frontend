@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-
+//import store from './store'
 Vue.use(Router)
 /**
  * All routes
@@ -17,22 +17,51 @@ Vue.use(Router)
  * }}
  * @type {VueRouter}
  */
+function loadView(view) {
+    return () => import(/* webpackChunkName: '[request]' */ `@/views/${view}.vue`)
+}
+
+const routes = [
+    {
+        path: '/login',
+        name: 'Login',
+        component: loadView('Login'),
+        meta: { requiresAuth: false, title: "Login" },
+        props: route => ({ scope: route.query.scope })
+
+    },
+    {
+        path: '/register',
+        name: 'Register',
+        component: loadView('Register'),
+        meta: { requiresAuth: false, title: "Register" },
+        props: route => ({ scope: route.query.scope })
+
+    }
+]
+
 var router = new Router({
-   // mode: 'history',
-    routes: [
-        {
-            path: '/',
-            name: 'default',
-            component: () => import('./views/Default.vue'),
-        },
-        {
-            path: '/confirm/:token',
-            name: 'confirm',
-            component: () => import('./views/Confirm.vue'),
-            props: true,
+    //mode: 'history',
+    routes,
+    scrollBehavior(to) {
+        if (to.hash) {
+            return { selector: to.hash };
         }
-    ]
+        return { x: 0, y: 0 };
+    },
 })
-
+/*router.beforeEach(( to, from, next ) => {
+    store.dispatch('current')
+        .then(()=> {
+            next()
+        })
+        .catch (error => {
+            if (!to.meta.requiresAuth) {
+                next()
+            }
+            else if (error.response.status === 401) {
+                router.push({name: 'Sign'})
+            }
+        })
+})*/
 export default router
-
