@@ -23,6 +23,10 @@ function loadView(view) {
 
 const routes = [
     {
+        path: '/', redirect: { name: 'Register', query: {scope: 'factory'}}
+        
+    },
+    {
         path: '/login',
         name: 'Login',
         component: loadView('Login'),
@@ -37,11 +41,23 @@ const routes = [
         meta: { requiresAuth: false, title: "Register" },
         props: route => ({ scope: route.query.scope })
 
+    },
+    {
+        path: '/confirm/:code',
+        name: 'Confirm',
+        component: loadView('Confirm'),
+        props: true
+    },
+    {
+        path: '/logout',
+        name: 'Logout',
+        component: loadView('Logout')
     }
+
 ]
 
 var router = new Router({
-    //mode: 'history',
+    mode: 'history',
     routes,
     scrollBehavior(to) {
         if (to.hash) {

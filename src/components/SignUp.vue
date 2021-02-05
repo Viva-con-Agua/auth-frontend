@@ -105,7 +105,7 @@ export default {
         },
         submit() {
             this.$store.commit('loadingFlow')
-            this.$store.dispatch({type: 'register/up'})
+            this.$store.dispatch({type: 'register/register'})
                 .then(() => {
                     this.$store.dispatch({type: 'navigation/current', data: 'Home'})
                     this.$router.push({ name: 'Donation' })

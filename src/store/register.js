@@ -11,6 +11,9 @@ const register = {
             country: 'de_DE',
             privacy_policy: false,
             scope: '',
+        },
+        code: {
+            code: ""
         }
     }),
     mutations: {
@@ -19,12 +22,15 @@ const register = {
         },
         scope(state, value) {
             state.user.scope = value
+        },
+        code(state, value) {
+            state.code.code = value
         }
     },
     actions: {
-        up({commit, state}) {
+        register({commit, state}) {
             return new Promise((resolve, reject) => {
-                apiSession.post('/register', state.user)
+                apiSession.post('/v1/auth/register', state.user)
                 .then(response => {
                     commit('redirectData', response.data), 
                     commit('cleanCredentials'),
@@ -34,7 +40,23 @@ const register = {
                     reject(error)
                 })
             })
+        },
+        confirm({state}) {
+            return new Promise((resolve, reject) =>{
+                apiSession.post('/v1/auth/register/confirm', state.code)
+                .then(response => {
+                    if (response.status === 201) {
+                        resolve(response.data)
+                    }
+                    resolve()
+                })
+                .catch(error => {
+                    console.log(error)
+                    reject()
+                })
+            } )
         }
+
     }
 }
 export default register

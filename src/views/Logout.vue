@@ -4,14 +4,8 @@
 <script>
 export default {
     name: 'Logout',
-    props: {
-        code: {
-            type: String,
-            default: null
-        }
-    },
     created () {
-        this.$store.dispatch({type: 'token', code: this.code})
+        this.$store.dispatch({type: 'logout'})
             .then(() => {
                 this.$router.push({name: 'Root'})
             })

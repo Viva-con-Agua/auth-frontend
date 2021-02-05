@@ -12,11 +12,15 @@
 
 </template>
 <script>
-import axios from 'axios'
 import NewToken from '@/components/NewToken'
 export default {
     name: 'Confirm',
-    props: ['token'],
+    props: {
+        code: {
+            type: String,
+            default: ""
+        }
+    },
     components: { NewToken },
     data () {
         return {
@@ -31,16 +35,16 @@ export default {
         }
     },
     mounted() {
-                    
-        axios.get(process.env.VUE_APP_BACKEND_URL + '/auth/signup/confirm/' + this.token, this.credentials)
-                .then(response => {
-                    this.text = response.data
-                })
-                .catch(error => {
-                    this.text = error
-                    this.error = true
-                })
-
+        this.$store.commit("register/code", this.code)
+        this.$store.dispatch({type: 'register/confirm'})
+            .then( data => {
+                if (data.message === "no_session") {
+                    this.$router({name: "Login", query: {scope: data.scope}})
+                } else if(data.message === "has_session") {
+                    window.location = data.redirect_url + "?code=" + data.code
+                }
+            })
+            .catch( () => { this.error = true})
     }
 }
 

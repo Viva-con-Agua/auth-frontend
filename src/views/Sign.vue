@@ -11,7 +11,7 @@
 <script>
 import SignIn from '@/components/sign/SignIn'
 export default {
-    name 'Sign',
+    name: 'Sign',
     components: {SignIn}
 }
 </script>

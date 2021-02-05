@@ -1,6 +1,6 @@
 import axios from 'axios'
 var apiSession = axios.create({
-    baseURL: 'http://localhost:1323',
+    baseURL: process.env.VUE_APP_BACKEND_URL,
     withCredentials: true,
     headers: {
         'Content-Type': 'application/json'
