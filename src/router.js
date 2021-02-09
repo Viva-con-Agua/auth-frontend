@@ -57,7 +57,7 @@ const routes = [
 ]
 
 var router = new Router({
-    mode: 'history',
+ //   mode: 'history',
     routes,
     scrollBehavior(to) {
         if (to.hash) {

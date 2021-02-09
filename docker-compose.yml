@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+    auth-frontend:
+        image: vivaconagua/auth-frontend:latest
+        build: .
+        restart: always
+        env_file:
+            - .env
+
