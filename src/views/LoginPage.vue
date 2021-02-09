@@ -1,16 +1,15 @@
 <template>
     <div id="sign-view" class="tabs-details">
         <vca-card>
-
-                    <SignIn />
+                    <Login />
         </vca-card>
     </div>
 </template>
 <script>
 
-import SignIn from '@/components/SignIn'
+import Login from '@/components/Login'
 export default {
-    name: 'Login',
+    name: 'LoginView',
     props: {
         scope: {
             type: String,
@@ -18,10 +17,10 @@ export default {
         }
     },
     created() {
-        this.$store.commit('scope', this.scope)
+        this.$store.commit('login/scope', this.scope)
     },
     components: {
-        SignIn, 
+        Login, 
     }
     /*
     watch :{

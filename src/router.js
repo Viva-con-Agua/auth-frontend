@@ -29,16 +29,16 @@ const routes = [
     {
         path: '/login',
         name: 'Login',
-        component: loadView('Login'),
-        meta: { requiresAuth: false, title: "Login" },
+        component: loadView('LoginPage'),
+        meta: { requiresAuth: false, title: "LoginPage" },
         props: route => ({ scope: route.query.scope })
 
     },
     {
         path: '/register',
         name: 'Register',
-        component: loadView('Register'),
-        meta: { requiresAuth: false, title: "Register" },
+        component: loadView('RegisterPage'),
+        meta: { requiresAuth: false, title: "RegisterPage" },
         props: route => ({ scope: route.query.scope })
 
     },

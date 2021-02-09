@@ -1,6 +1,10 @@
 import api from './api.js'
+import session from './session.js'
 const user = {
     namespaced: true,
+    modules: {
+        session: session
+    },
     state: () => ({
         current: null,
         profile: null,

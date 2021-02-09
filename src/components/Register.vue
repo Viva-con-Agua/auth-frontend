@@ -49,7 +49,7 @@
 <script>
 import { required, email, sameAs } from 'vuelidate/lib/validators'
 export default {
-    name: 'SignUp',
+    name: 'Register',
     computed: {
         user: {
             get () {
@@ -117,6 +117,10 @@ export default {
                     this.$store.commit('loadingFlow')
                 })
         },
+    created() {
+        this.$store.commit('register/scope', this.scope)
+    },
+
         open(msg) {
             if (msg !== undefined) {
                 this.$notify({

@@ -28,7 +28,7 @@
 <script>
 import { required, email } from 'vuelidate/lib/validators'
 export default {
-    name: 'SignIn',
+    name: 'Login',
     computed: {
         credentials: {
             get () {
