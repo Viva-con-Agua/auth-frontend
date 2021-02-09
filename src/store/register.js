@@ -10,6 +10,10 @@ const register = {
             display_name: '',
             country: 'de_DE',
             privacy_policy: false,
+            offset: {
+                known_from: "UNKOWN",
+                newsletter: false
+            },
             scope: '',
         },
         code: {

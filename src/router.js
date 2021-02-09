@@ -31,15 +31,15 @@ const routes = [
         name: 'Login',
         component: loadView('LoginPage'),
         meta: { requiresAuth: false, title: "LoginPage" },
-        props: route => ({ scope: route.query.scope })
+        props: route => ({ scope: route.query.scope, language: route.query.language })
 
     },
     {
         path: '/register',
         name: 'Register',
-        component: loadView('RegisterPage'),
+        component: loadView('Register'),
         meta: { requiresAuth: false, title: "RegisterPage" },
-        props: route => ({ scope: route.query.scope })
+        props: route => ({ scope: route.query.scope, language: route.query.language })
 
     },
     {

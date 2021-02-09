@@ -1,17 +1,42 @@
 <template>
-    <div>
+    <div class="register">
         <vca-input
             ref="email"
-            errorMsg="Bitte E-Mail Adresse eintragen"
-            placeholder="E-Mail Adresse"
+            :errorMsg="$t('sign.register.email.error')"
+            :placeholder="$t('sign.register.email.placeholder')"
             v-model.trim="user.email" 
             :rules="$v.user.email">
         </vca-input>
         <vca-input
+            ref="display_name"
+            :errorMsg="$t('sign.register.displayname.error')"
+            :placeholder="$t('sign.register.displayname.placeholder')"
+            v-model.trim="user.display_name" 
+            :rules="$v.user.display_name">
+        </vca-input>
+        <vca-field-row>
+            <vca-input 
+                ref="first_name"
+                first
+                :errorMsg="$t('sign.register.firstname.error')"
+                :placeholder="$t('sign.register.firstname.placeholder')"
+                v-model.trim="user.first_name" 
+                :rules="$v.user.first_name">
+            </vca-input>
+            <vca-input
+                ref="last_name"
+                last
+                :errorMsg="$t('sign.register.lastname.error')"
+                :placeholder="$t('sign.register.lastname.placeholder')"
+                v-model.trim="user.last_name" 
+                :rules="$v.user.last_name">
+            </vca-input>
+        </vca-field-row>
+        <vca-input
             ref="password"
             type="password"
-            errorMsg="Bitte Passwort eingeben"
-            placeholder="Passwort"
+            :errorMsg="$t('sign.register.password1.error')"
+            :placeholder="$t('sign.register.password1.placeholder')"
             v-model.trim="user.password" 
             :rules="$v.user.password">
         </vca-input>
@@ -19,30 +44,40 @@
             ref="password_check"
             type="password"
             :errorMsg="pwError"
-            placeholder="Passwort"
+            :placeholder="$t('sign.register.password2.placeholder')"
             v-model.trim="password_check" 
             :rules="$v.password_check">
         </vca-input>
-         <vca-input
-            ref="display_name"
-            errorMsg="username angeben"
-            placeholder="Username"
-            v-model.trim="user.display_name" 
-            :rules="$v.user.display_name">
-        </vca-input>
-        
+
         <vca-checkbox 
             ref="privacy_policy"
             v-model="user.privacy_policy"
             :rules="$v.user.privacy_policy"
-            errorMsg="Bitte bestätige die Datenschutzerklärung und die AGB" > 
-                    Ich habe die <a href="https://www.vivaconagua.org/datenschutzerklaerung" target="_blank">Datenschutzerklärung</a> und die <a href="https://www.vivaconagua.org/agb" target="_blank">AGB</a> gelesen.
+            :errorMsg="$t('sign.register.privacy_policy.error')" > 
+                <i18n path="sign.register.privacy_policy.text">
+                    <a href="https://www.vivaconagua.org/datenschutzerklaerung" target="_blank">{{ $t('sign.register.privacy_policy.privacy_policy') }}</a>
+                    <a href="https://www.vivaconagua.org/agb" target="_blank">{{ $t('sign.register.privacy_policy.tos') }}</a>
+                </i18n>
         </vca-checkbox>
+
+        <vca-checkbox
+            v-model="user.offset.newsletter">
+                <div class="highlight">{{ $t('sign.register.newsletter.title') }}</div> {{ $t('sign.register.newsletter.text1') }}<br/>{{ $t('sign.register.newsletter.text2') }}
+        </vca-checkbox>
+        <vca-known-from @input="changeKnown" :placeholder="$t('sign.register.known_from.placeholder')" ref="known_from" />
         <button
             class="vca-button button"
             @click.prevent="validate">
-            Registrieren
+            {{ $t('sign.register.title') }}
         </button>
+
+        <div class="vca-center text-center">
+            <h2>
+                <i18n path="sign.register.login">
+                    <span class="link" @click="login">{{ $t('sign.login.title') }}</span>
+                </i18n>
+            </h2>
+        </div>
     </div>
 </template>
 
@@ -50,6 +85,22 @@
 import { required, email, sameAs } from 'vuelidate/lib/validators'
 export default {
     name: 'Register',
+    props: {
+      scope: {
+        type: String,
+        default: 'factory',
+        validator: function (value) {
+          return value !== undefined
+        }
+      },
+      language: {
+        type: String,
+        default: 'de',
+        validator: function (value) {
+          return ['de', 'ch', 'za'].indexOf(value) !== -1
+        }
+      }
+    },
     computed: {
         user: {
             get () {
@@ -61,9 +112,9 @@ export default {
         },
         pwError () {
             if (this.$v.password_check.required && !this.$v.password_check.sameAs) {
-                return 'Deine Passwörter stimmen nicht überein'
+                return this.$t('sign.register.password2.error.same')
             }
-            return 'Bitte Passwort eingeben'
+            return this.$t('sign.register.password2.error.enter')
         }
     },
     data () {
@@ -93,6 +144,10 @@ export default {
             sameAs: sameAs(function () { return this.user.password })
         }
     },
+    created() {
+        this.$store.commit('register/scope', this.$route.query.scope)
+        this.$i18n.locale = this.$route.query.language
+    },
     methods: {
         validate() {
             if (this.$v.$invalid === true) {
@@ -117,10 +172,16 @@ export default {
                     this.$store.commit('loadingFlow')
                 })
         },
-    created() {
-        this.$store.commit('register/scope', this.scope)
-    },
-
+        changeKnown(nVal) {
+            if (nVal.length > 0) {
+                this.user.offset.known_from = nVal[0].value
+            } else {
+                this.user.offset.known_from = "UNKOWN"
+            }
+        },
+        login() {
+            this.$router.push({name: 'Login', query: { scope: this.$route.query.scope, language: this.$route.query.language }})
+        },
         open(msg) {
             if (msg !== undefined) {
                 this.$notify({
@@ -134,10 +195,3 @@ export default {
     }
 }
 </script>
-<style scoped>
-.button{
-    margin-top:1em;
-    margin-bottom:1em;
-    width: 100%;
-}
-</style>

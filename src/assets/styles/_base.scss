@@ -1,0 +1,31 @@
+/*
+dev.mode
+ */
+@import "_mixins.scss";
+
+
+body {
+  margin: 0 !important;
+}
+
+* {
+  box-shadow: none !important;
+}
+
+.minus-margin {
+    margin: -1%;
+    overflow: hidden;
+}
+
+.welcome-button {
+  width: calc(100% - 15px) !important;
+}
+
+/*
+Variables
+ */
+
+$blue: #008fc3;
+$light_blue: #66D4FC;
+$dark_blue: #002e6d;
+$white: #FFFFFF;

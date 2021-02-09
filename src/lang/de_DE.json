@@ -1,0 +1,102 @@
+{
+  "locale": {
+    "dateFormat": "DD.MM.YYYY",
+    "monthDateFormat": "MM.YYYY",
+    "de-DE": {
+      "locale": "de-DE",
+      "name": "Deutsch",
+      "label": "de"
+    },
+    "de-CH": {
+      "locale": "de-CH",
+      "name": "Schweizerdeutsch",
+      "label": "ch"
+    },
+    "en-ZA": {
+      "locale": "en-ZA",
+      "name": "Südafrikanisches English",
+      "label": "za"
+    }
+  },
+  "language": {
+    "title": "Sprache"
+  },
+  "currency": {
+    "title": "Währung"
+  },
+  "footer": {
+    "legal": {
+      "dataSecurity": "Datenschutz",
+      "imprint": "Impressum",
+      "language": "Sprache",
+      "currency": "Währung"
+    }
+  },
+  "header": {
+    "sso": "Viva con Agua Login",
+    "moreInfo": {
+      "button": "mehr Infos",
+      "title": "Viva con Agua Single-Sign-On",
+      "description": "Hier Beschreibung was SSO ist"
+    }
+  },
+  "sign": {
+    "register": {
+      "title": "Registrieren",
+      "login": "Ich habe bereits einen Account und möchte mich {0}",
+      "email": {
+        "placeholder": "E-Mail Adresse",
+        "error": "Bitte gib eine gültige E-Mail Adresse ein"
+      },
+      "displayname": {
+        "placeholder": "Benutzername",
+        "error": "Bitte gib einen Benutzernamen ein"
+      },
+      "firstname": {
+        "placeholder": "Dein Vorname",
+        "error": "Bitte gib deinen Vornamen ein"
+      },
+      "lastname": {
+        "placeholder": "Dein Nachname",
+        "error": "Bitte gib deinen Nachnamen ein"
+      },
+      "password1": {
+        "placeholder": "Dein Passwort",
+        "error": "Bitte gib ein Passwort ein"
+      },
+      "password2": {
+        "placeholder": "Passwort bestätigen",
+        "error": {
+          "same": "Deine Passwörter stimmen nicht überein",
+          "enter": "Bitte bestätige dein Passwort"
+        }
+      },
+      "privacy_policy": {
+        "error": "Bitte bestätige, dass du die Datenschutzerklärung und die AGB zur Kenntnis genommen hast",
+        "text": "Ich habe die {0} und die {1} gelesen.",
+        "privacy_policy": "Datenschutzerklärung",
+        "tos": "AGB"
+      },
+      "newsletter": {
+        "title": "Flaschenpost",
+        "text1": "Hier klicken, wenn du News und Projektupdates per E-Mail haben möchtest.",
+        "text2": "Kommt ca 1. im Monat und kannst du in jedem Newsletter wieder abbestellen. :) "
+      },
+      "known_from": {
+        "placeholder": "Daher kenne ich euch"
+      }
+    },
+    "login": {
+      "title": "Anmelden",
+      "register": "Ich habe noch keinen Account und möchte mich {0}",
+      "email": {
+        "placeholder": "E-Mail Adresse",
+        "error": "Bitte gib eine gültige E-Mail Adresse ein"
+      },
+      "password": {
+        "placeholder": "Dein Passwort",
+        "error": "Bitte gib ein Passwort ein"
+      }
+    }
+  }
+}
