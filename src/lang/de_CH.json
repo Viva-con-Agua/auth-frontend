@@ -1,0 +1,81 @@
+{
+  "locale": {
+    "dateFormat": "DD.MM.YYYY",
+    "monthDateFormat": "MM.YYYY",
+    "de-DE": {
+      "locale": "de-DE",
+      "name": "Deutsch",
+      "label": "de"
+    },
+    "de-CH": {
+      "locale": "de-CH",
+      "name": "Schwizerdütsch",
+      "label": "ch"
+    },
+    "en-ZA": {
+      "locale": "en-ZA",
+      "name": "Südafrikanisches English",
+      "label": "za"
+    }
+  },
+  "language": {
+    "title": "Sprache"
+  },
+  "currency": {
+    "title": "Währung"
+  },
+  "countdown": {
+    "starts": "NOCH",
+    "days": "TAGE",
+    "hours": "Stunden",
+    "minutes": "Minuten",
+    "seconds": "Sekunden",
+    "event": "LET’S RUN TOGETHER - AM 22. MÄRZ GEHT'S LOS"
+  },
+  "faqs":{
+    "run4w": {
+      "0": {
+        "header": "Was muss ich über den Accenture Christmas Run 2020 wissen?",
+        "body": "Der Accenture Christmas Run ist ein virtuelles Spendenlaufevent, das vom 6.-13. Dezember 2020 stattfindet. Organisiert wird der Lauf vom gemeinnützigen Verein Viva con Agua mit dem Ziel, eine Schulen in der Eastern Cape Providence in Südafrika mit Spenden zu unterstützen. Die Anmeldung ist bis zum 13. Dezember um 21.00 Uhr möglich. Die gewählte(n) Strecke(n) sollte(n) bis zum 13. Dezember, 23.59 Uhr absolviert werden – wann und wo entscheidet jeder/jede LäuferIn selbst. Für den angezeigten Ergebnisfortschritt ist es notwendig, die Laufergebnis nach dem eigenen Lauf final einzutragen. Die Teilnahme ist grundsätzlich kostenlos, eine entsprechende Spende ist jedoch sehr gerne erwünscht."
+      },
+      "1": {
+        "header": "Wie kann ich mehr über den Lauf oder das Spendeprojekt erfahren?",
+        "body": "Es gibt zwei Teams-Calls am 2. und 9. Dezember, jeweils um 12:30 Uhr, in dem wir Euch gerne alle weiteren Fragen beantworten. Ihr könnt den Calls über {0} beitreten."
+      },
+      "2": {
+        "header": "Wie kann ich mich trotz des virtuelllen Laufs als Teil des One-Accenture-Teams fühlen?",
+        "body": "Auf Teams gibt es eine Accenture Runners Gruppe, in der wir uns gegenseitig motivieren, Finisher-Selfies posten, etc. – Für die originellsten Finisher-Selfies gibt es Preise. Die Teams-Gruppe findet Ihr {0}."
+      },
+      "3": {
+        "header": "Wie kann ich im Rahmen des Laufs spenden?",
+        "body": "Bei der Anmeldung hast du die Möglichkeit, mit einer freiwilligen Spende das Projekt SA WINS (WINS = WASH in schools / WASH = Wasser, Sanitär, Hygiene) von Viva con Agua zu unterstützen. Über die Höhe der Spende entscheidest du selbst. "
+      },
+      "4": {
+        "header": "Bekomme ich eine Spendenquittung für meine Spende?",
+        "body": "Ja, ab einem Betrag von 50 Euro bzw. Franken. Anfang nächsten Jahres wird dir deine digitale Spendenquittung per E-Mail zugeschickt. Bitte fülle dazu deine Adressdaten korrekt aus."
+      },
+      "5": {
+        "header": "Kann ich das Projekt von Viva con Agua auch unterstützen, ohne selber zu laufen?",
+        "body": "Absolut! Als Sofa-SpenderIn kannst du es dir an dem Wochenende auf deiner Couch gemütlich machen und trotzdem gutes Karma sammeln. Klicke dazu auf den Sofa-Spendebutton rechts oben auf accenture.move4water.org und unterstütze somit das Projekt von Viva con Agua und motiviere zusätzlich alle LäuferInnen mit deiner Spende."
+      }
+    },
+    "donation": {
+      "0": {
+        "header": "Wohin gehen die gesammelten Spenden?",
+        "body": "Die Spenden werden für das Projekt “SA WINS” in Südafrika eingesetzt. Weiterführende Informationen rund um das Projekt findest du auf der Homepage von Viva con Agua!"
+      },
+      "1": {
+        "header": "Was wird durch meine Spende ermöglicht?",
+        "body": "Unser Ziel ist es, mit dem Event 10.000 Euro zu generieren, um damit eine Schule in der Eastern Cape Region in Südafrika mit sauberem Trinkwasser und sanitären Einrichtungen zu versorgen."
+      },
+      "2": {
+        "header": "Wer profitiert von den Spendengeldern?",
+        "body": "Wenn wir es gemeinsam schaffen, 10.000 Euro einzunehmen, dann profitieren 400 junge Menschen, welchen wir mit dem Geld ein freudvolles und gesundes Lernen ermöglichen können."
+      },
+      "3": {
+        "header": "Wo finde ich weiterführende Informationen über das Projekt in Südafrika?",
+        "body": "Du kannst dir weiterführende Informationen direkt {0} anschauen."
+      }
+    }
+  }
+}

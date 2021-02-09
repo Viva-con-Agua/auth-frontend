@@ -1,80 +1,48 @@
 <template>
-    <div>
-        <vca-input
-            ref="email"
-            errorMsg="Bitte E-Mail Adresse eintragen"
-            placeholder="E-Mail Adresse"
-            v-model.trim="credentials.email" 
-            :rules="$v.credentials.email">
-        </vca-input>
-        <vca-input 
-            ref="password"
-            errorMsg="Bitte Passwort eingeben"
-            type="password"
-            placeholder="Passwort"
-            v-model.trim="credentials.password" 
-            :rules="$v.credentials.password">
-        </vca-input>
-        <vca-field-row>
-            <button 
-                    class="vca-button button"
-                    @click.prevent="validate">
-                Anmelden
-            </button>
-        </vca-field-row>
+    <div id="sign-view" class="tabs-details">
+        <vca-card v-if="!session">
+            <vca-tabs>
+                <vca-tab :title="$t('sign.register')" selected=true>
+                    <SignUp />
+                </vca-tab>
+                <vca-tab title="$t('sign.login')">
+                    <SignIn />
+                </vca-tab>
+            </vca-tabs>
+        </vca-card>
     </div>
 </template>
-
 <script>
-import { required, email } from 'vuelidate/lib/validators'
+
+import SignIn from '@/components/user/SignIn'
+import SignUp from '@/components/user/SignUp'
+import { mapGetters } from 'vuex'
+import axios from 'axios'
+axios.defaults.withCredentials = true
 export default {
-    name: 'SignIn',
+    name: 'SignView',
+    components: {
+        SignIn, 
+        SignUp
+    },
+    watch :{
+        session: function(val) {
+            if (val === true) {
+                this.$store.dispatch({type: 'navigation/current', data: 'Countdown'})
+                this.$router.push({ name: 'Countdown' })
+            }
+        },
+    },
     computed: {
-        credentials: {
-            get () {
-                return this.$store.state.login.credentials
-            },
-            set (value) {
-                this.$store.commit('login/credentials', value)
-            }
+        ...mapGetters({
+            session: 'session'
+        })
+    },
+    created () {
+        if (this.session === true) {
+            this.$store.dispatch({type: 'navigation/current', data: 'Countdown'})
+            this.$router.push({ name: 'Countdown' })
         }
-    },
-    validations: {
-        credentials: {
-            email: {
-                required,
-                email,
-            },
-            password: {
-                required
-            }
-        },
-    },
-    methods: {
-        validate() {
-            if (this.$v.$invalid) {
-                this.$refs.email.validate()
-                this.$refs.password.validate()
-            } else {
-                this.submit()
-            }
-        },
-        submit() {
-            this.$store.dispatch({type: 'login/signin'})
-                .then((data)=> {
-                    window.location = data.redirect_url + "?code=" + data.code
-                })
-                .catch ((errorMsg) => {
-                    this.open(errorMsg)
-                })
-        },
     }
 }
 </script>
-<style scoped>
-.button{
-    margin-top:1em;
-    margin-bottom:1em;
-    width: 100%;
-}
-</style>

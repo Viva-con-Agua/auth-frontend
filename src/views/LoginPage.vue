@@ -1,7 +1,7 @@
 <template>
     <div id="sign-view" class="tabs-details">
         <vca-card>
-                    <Login />
+            <Login />
         </vca-card>
     </div>
 </template>

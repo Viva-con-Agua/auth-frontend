@@ -1,17 +1,27 @@
 <template>
-    <vca-tabs>
-    <vca-tab>
-        <SignIn/>
-    </vca-tab>
-    <vca-tab>
-        content
-    </vca-tab>
-</vca-tabs>
+    <div id="sign-view" class="tabs-details">
+        <vca-card>
+            <vca-tabs>
+                <vca-tab :title="$t('sign.register.title')" selected=true>
+                    <Register />
+                </vca-tab>
+                <vca-tab :title="$t('sign.login.title')">
+                    <Login />
+                </vca-tab>
+            </vca-tabs>
+        </vca-card>
+    </div>
 </template>
 <script>
-import SignIn from '@/components/sign/SignIn'
+
+import Register from '@/components/Register'
+import Login from '@/components/Login'
+
 export default {
     name: 'Sign',
-    components: {SignIn}
+    components: {
+        Register, 
+        Login
+    }
 }
 </script>
