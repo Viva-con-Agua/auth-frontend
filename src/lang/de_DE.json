@@ -33,11 +33,11 @@
     }
   },
   "header": {
-    "sso": "Viva con Agua Login",
+    "sso": "Viva con Agua Portal",
     "moreInfo": {
       "button": "mehr Infos",
-      "title": "Viva con Agua Single-Sign-On",
-      "description": "Hier Beschreibung was SSO ist"
+      "title": "Viva con Agua Portal",
+      "description": "Das <div class='text-highlight'>Viva con Agua Portal</div> ist die zentrale Anlaufstelle für alle Web-Anwendungen, die Viva con Agua zu Verfügung stellt.<br/>Um es dir als Nutzer*in einerseits möglichst einfach zu machen und gleichzeitig möglichst hohe Sicherheit zu bieten, nutzen wir hierfür ein zentrales Login, das sogenannte Single Sign-On (SSO). Single Sign-On ist ein Authentifizierungsverfahren, bei dem sich Benutzer*innen auf sichere Weise an mehreren Anwendungen und Websites anmelden können, dabei jedoch nur ein einziges Mal ihre Zugangsdaten eingeben müssen. Dieses Verfahren kennst du vielleicht schon von Plattformen wie Google oder Facebook.<br/>Das bedeutet, dass du dich künftig mit deinen Benutzerdaten problemlos bei unseren Services anmelden kannst, ohne dir für jede Seite ein neues Konto anlegen zu müssen. Deine Daten werden dabei nur verschlüsselt übertragen und liegen dabei auf unseren eigenen Servern - die nebenbei auch zu 100% mit Wasserkraft betrieben werden.<br/><strong>Nach dem Login oder der Registrierung wirst du automatisch wieder zu der Anwendungen weitergeleitet, von der du gekommen bist.</strong>"
     }
   },
   "sign": {
@@ -79,8 +79,7 @@
       },
       "newsletter": {
         "title": "Flaschenpost",
-        "text1": "Hier klicken, wenn du News und Projektupdates per E-Mail haben möchtest.",
-        "text2": "Kommt ca 1. im Monat und kannst du in jedem Newsletter wieder abbestellen. :) "
+        "text": "Hier klicken, wenn du News und Projektupdates per E-Mail haben möchtest.<br/>Kommt ca 1. im Monat und kannst du in jedem Newsletter wieder abbestellen. :) "
       },
       "known_from": {
         "placeholder": "Daher kenne ich euch"
@@ -91,11 +90,11 @@
       "register": "Ich habe noch keinen Account und möchte mich {0}",
       "email": {
         "placeholder": "E-Mail Adresse",
-        "error": "Bitte gib eine gültige E-Mail Adresse ein"
+        "error": "Bitte gib deine E-Mail Adresse ein"
       },
       "password": {
         "placeholder": "Dein Passwort",
-        "error": "Bitte gib ein Passwort ein"
+        "error": "Bitte gib dein Passwort ein"
       }
     }
   }

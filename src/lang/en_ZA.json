@@ -24,79 +24,77 @@
   "currency": {
     "title": "Currency"
   },
-  "countdown": {
-    "starts": "",
-    "days": "DAYS LEFT",
-    "hours": "hours",
-    "minutes": "minutes",
-    "seconds": "seconds",
-    "event": "LET’S RUN TOGETHER - IT STARTS ON 22. MARCH"
-  },
-  "donation": {
-    "selectCountry": {
-      "label": "Please select the organisation you want to donate to",
-      "placeholder": "Please select organisation",
-      "de": {
-        "title": "Viva con Agua de Sankt Pauli e.V.",
-        "subtitle": "Our association in Germany"
-      },
-      "ch": {
-        "title": "Viva con Agua Switzerland",
-        "subtitle": "Our association in Switzerland"
-      }
+  "footer": {
+    "legal": {
+      "dataSecurity": "Privacy Policy",
+      "imprint": "Imprint",
+      "language": "Language",
+      "currency": "Currency"
     }
   },
-  "faqs":{
-    "run4w": {
-      "0": {
-        "header": "Was muss ich über den Run4WATER-Lauf wissen?",
-        "body": "Der Spendenlauf #Run4WATER ist ein virtuelles Spendenlaufevent, das vom 9.-11. Oktober 2020 stattfindet. Organisiert wird der Lauf vom gemeinnützigen Verein Viva con Agua de Sankt Pauli e.V. und Viva con Agua Schweiz mit dem Ziel, 5 Schulen in der Eastern Cape Providence in Südafrika mit Spenden zu unterstützen. Die Anmeldung ist bis zum 11. Oktober um 21.00 Uhr möglich. Die gewählte Strecke sollte vom 9.-11. Oktober absolviert werden – wann und wo entscheidet jeder/jede LäuferIn selbst. Für einen Ergebnisvergleich mit anderen TeilnehmerInnen ist der Eintrag der absolvierten Kilometer nach dem Lauf erforderlich. Eine Teilnahme am Lauf ist aber auch ohne diesen Nachweis möglich. Die Teilnahme ist grundsätzlich kostenlos, eine entsprechende Spende ist jedoch sehr gerne erwünscht."
+  "header": {
+    "sso": "Viva con Agua Portal",
+    "moreInfo": {
+      "button": "more informations",
+      "title": "Viva con Agua Portal",
+      "description": "The <div class='text-highlight'>Viva con Agua Portal</div> is the central point of contact for all web applications provided by Viva con Agua.<br/>To make it as easy as possible for you as a user and at the same time to offer the highest possible security, we use a central login, the so-called Single Sign-On (SSO). Single sign-on is an authentication process that allows users to securely log in to multiple applications and websites, but only have to enter their credentials once. You may already be familiar with this process from platforms such as Google or Facebook.<br/>This means that in the future you can easily log in to our services with your user data without having to create a new account for each site. Your data will only be transmitted in encrypted form and will be stored on our own servers - which, by the way, are also powered by 100% hydropower.<br/><strong>After your login or registration, you will be automatically redirected back to the application you came from.</strong>"
+    }
+  },
+  "sign": {
+    "register": {
+      "title": "Register",
+      "login": "I already have an account and want to {0}",
+      "email": {
+        "placeholder": "Email address",
+        "error": "Please enter a valid email address"
       },
-      "1": {
-        "header": "Wie kann ich im Rahmen des Laufs spenden?",
-        "body": "Bei der Anmeldung hast du die Möglichkeit, mit einer freiwilligen Spende das Projekt SA WINS (WINS = WASH in schools / WASH = Wasser, Sanitär, Hygiene) von Viva con Agua zu unterstützen. Über die Höhe der Spende entscheidest du - wir freuen uns über jede einzelne Spende und empfehlen dir 1€ bzw. CHF 1 pro gelaufenem Kilometer."
+      "displayname": {
+        "placeholder": "Username",
+        "error": "Please enter your username"
       },
-      "2": {
-        "header": "Wie funktioniert eine Team-Anmeldung?",
-        "body": "Du hast kein Bock, alleine zu laufen? Auf der Seite (move4water.org) gibt es zusätzlich die Möglichkeit, sich mit deinem Team für den #Run4WATER anzumelden. Dabei hast du zwei Optionen: Du kannst entweder dein eigenes Team gründen und per Einladungslink deine MitläuferInnen zum Team einladen, oder du trittst einem bereits bestehenden Team bei."
+      "firstname": {
+        "placeholder": "Your first name",
+        "error": "Please enter your first name"
       },
-      "3": {
-        "header": "Wo kann ich sehen, ob mein Team bereits angemeldet ist?",
-        "body": "Nachdem du dich unter move4water.org registriert hast, kannst du das Event “Run4WATER” auswählen. Dort gibt es den Reiter “Team” und die Möglichkeit, entweder per Suchleiste den Namen deines Teams einzugeben oder in der Dropdown-Leiste nach deinem entsprechenden Team zu suchen."
+      "lastname": {
+        "placeholder": "Your last name",
+        "error": "Please enter your last name"
       },
-      "4": {
-        "header": "Kann ich meine Anmeldung nochmal bearbeiten?",
-        "body": "Na klar. Nach erfolgreicher Anmeldung erhälst du eine Bestätigungsmail mit dem Link zu deinem persönlichen Profil. Du kannst dich also im Nachhinein auch noch umentscheiden, solltest du doch mehr Kilometer laufen wollen."
+      "password1": {
+        "placeholder": "Your password",
+        "error": "Please enter a password"
       },
-      "5": {
-        "header": "Bekomme ich eine Spendenquittung für meine Spende?",
-        "body": "Ja, ab einem Betrag von 50 Euro bzw. Franken. Anfang nächsten Jahres wird dir deine digitale Spendenquittung per E-Mail zugeschickt. Bitte fülle dazu deine Adressdaten korrekt aus."
+      "password2": {
+        "placeholder": "Password confirmation",
+        "error": {
+          "same": "Your entered passwords do not match",
+          "enter": "Please confirm your password"
+        }
       },
-      "6": {
-        "header": "Kann ich das Projekt von Viva con Agua auch unterstützen, ohne selber zu laufen?",
-        "body": "Absolut! Als Sofa-SpenderIn kannst du es dir an dem Wochenende auf deiner Couch gemütlich machen und trotzdem gutes Karma sammeln. Klicke dazu auf den Sofa-Spendebutton rechts oben auf move4water.org und unterstütze somit das Projekt von Viva con Agua und motiviere zusätzlich alle LäuferInnen mit deiner Spende."
+      "privacy_policy": {
+        "error": "Please confirm that you have read the privacy policy and the terms and service",
+        "text": "I have read the {0} and the {1}.",
+        "privacy_policy": "Privacy policy",
+        "tos": "Terms of service"
       },
-      "7": {
-        "header": "Wie kann man sich als Firma im Rahmen des Laufs engagieren?",
-        "body": "Ihr als Firma habt zum einen die Möglichkeit, euch als ”klassischer Sponsor” am Event zu beteiligen. Schreibe hierzu eine Mail an support@move4water.org und wir klären alles Weitere schnellstmöglich mit dir. Zum Anderen ist der Run4WATER-Spendenlauf eine willkommene Gelegenheit, deine KollegInnen für ein Teamevent zu begeistern und gemeinsam als Team zu starten. Deine Firma kann beispielsweise die erlaufenen Kilometer matchen und die entsprechende Kilometeranzahl in Euro/Franken somit verdoppeln."
+      "newsletter": {
+        "title": "Newsletter",
+        "text": "Click here if you want to have news and project updates by email.<br/>Comes about 1. a month and you can unsubscribe in each newsletter again. :) "
+      },
+      "known_from": {
+        "placeholder": "I know you from there"
       }
     },
-    "donation": {
-      "0": {
-        "header": "Wohin gehen die gesammelten Spenden?",
-        "body": "Die Spenden werden für das Projekt “SA WINS” in Südafrika eingesetzt. Weiterführende Informationen rund um das Projekt findest du auf der Homepage von Viva con Agua!"
+    "login": {
+      "title": "Login",
+      "register": "I do not have an account yet and would like to {0}",
+      "email": {
+        "placeholder": "Email address",
+        "error": "Please enter your email address"
       },
-      "1": {
-        "header": "Was wird durch meine Spende ermöglicht?",
-        "body": "Unser Ziel ist es, mit dem Event 50.000 Euro/Franken zu generieren, um damit fünf Schulen in der Eastern Cape Region in Südafrika mit sauberem Trinkwasser und sanitären Einrichtungen zu versorgen."
-      },
-      "2": {
-        "header": "Wer profitiert von den Spendengeldern?",
-        "body": "Wenn wir es gemeinsam schaffen, 50.000 Euro/Franken einzunehmen, dann profitieren 2.000 junge Menschen, welchen wir mit dem Geld ein freudvolles und gesundes Lernen ermöglichen können."
-      },
-      "3": {
-        "header": "Wo finde ich weiterführende Informationen über das Projekt in Südafrika?",
-        "body": "Du kannst dir weiterführende Informationen direkt {0} anschauen."
+      "password": {
+        "placeholder": "Your password",
+        "error": "Please enter your password"
       }
     }
   }

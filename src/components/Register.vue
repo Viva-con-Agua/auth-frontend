@@ -1,5 +1,5 @@
 <template>
-    <div class="register">
+    <div class="text-left">
         <vca-input
             ref="email"
             :errorMsg="$t('sign.register.email.error')"
@@ -62,7 +62,7 @@
 
         <vca-checkbox
             v-model="user.offset.newsletter">
-                <div class="highlight">{{ $t('sign.register.newsletter.title') }}</div> {{ $t('sign.register.newsletter.text1') }}<br/>{{ $t('sign.register.newsletter.text2') }}
+                <div class="highlight">{{ $t('sign.register.newsletter.title') }}</div> <span v-html="$t('sign.register.newsletter.text')"></span>
         </vca-checkbox>
         <vca-known-from @input="changeKnown" :placeholder="$t('sign.register.known_from.placeholder')" ref="known_from" />
         <button
