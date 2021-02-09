@@ -1,8 +1,10 @@
 <template>
   <div id="app">
     <notifications position="top center" width="100%"/>
-    <Navigation />
-    <router-view/>
+    <div class="app-wrap">
+      <Navigation />
+      <router-view/>
+    </div>
     <Footer />
   </div>
 </template>
@@ -24,9 +26,26 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  position: relative;
+  min-height: 100%;
+  
+  @include media(large) {
+    min-height: 100vh;
+  }
 }
 
-.register {
+.app-wrap {
+  padding-bottom: 100px;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+}
+
+.text-left {
   text-align: left;
 }
 
@@ -35,7 +54,8 @@ export default {
 }
 
 .link {
-    color: $dark_blue;
+    color: $blue;
     cursor: pointer;
+    text-decoration: underline;
 }
 </style>
