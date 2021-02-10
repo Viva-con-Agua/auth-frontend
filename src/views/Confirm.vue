@@ -2,10 +2,9 @@
     <div id=confirm>
         {{ text }}
         <div v-if="error">
-            <button @click.prevent="submit">Neue Email?</button>
+            <button @click.prevent="submit" class="vca-button">{{ $t('sign.login.new_token') }}</button>
         </div>
         <vca-card v-if="mail">
-
             <NewToken/>
         </vca-card>
     </div>
@@ -32,6 +31,16 @@ export default {
     methods: {
         submit() {
             this.mail = true
+        },
+        open(msg) {
+            if (msg !== undefined) {
+                this.$notify({
+                    title: msg.title,
+                    text: msg.body,
+                    type: msg.type,
+                    duration: 6000
+                });
+            }
         }
     },
     mounted() {
@@ -44,16 +53,11 @@ export default {
                     window.location = data.redirect_url + "?code=" + data.code
                 }
             })
-            .catch( () => { this.error = true})
+            .catch( (error) => { 
+                this.error = true
+                this.open(error)
+            })
     }
 }
 
 </script>
-<style scoped>
-
-
-#signin {
-    width: 100%;
-    flex: 1;
-}
-</style>

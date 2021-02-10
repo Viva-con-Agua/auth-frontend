@@ -52,7 +52,14 @@ const routes = [
         path: '/logout',
         name: 'Logout',
         component: loadView('Logout')
-    }
+    },
+    {
+        path: '/reset/:token',
+        name: 'PasswordReset',
+        component: loadView('ResetPassword'),
+        meta: { requiresAuth: false },
+        props: true
+    },
 
 ]
 

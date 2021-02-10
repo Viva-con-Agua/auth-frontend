@@ -1,11 +1,9 @@
 <template>
   <div id="app">
     <notifications position="top center" width="100%"/>
-    <div class="app-wrap">
-      <Navigation />
-      <router-view/>
-    </div>
-    <Footer />
+    <Navigation />
+    <router-view class="app-content"/>
+    <Footer class="app-footer"/>
   </div>
 </template>
 
@@ -25,24 +23,20 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
-  position: relative;
-  min-height: 100%;
-  
-  @include media(large) {
-    min-height: 100vh;
-  }
+    
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-height: min-content;
 }
 
-.app-wrap {
-  padding-bottom: 100px;
+.app-content {
+    flex-shrink: 0;
+    flex-grow: 1;
 }
 
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  height: 100px;
+.app-footer {
+    flex-shrink: 0;
 }
 
 .text-left {

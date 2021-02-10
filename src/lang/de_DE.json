@@ -40,6 +40,9 @@
       "description": "Das <div class='text-highlight'>Viva con Agua Portal</div> ist die zentrale Anlaufstelle für alle Web-Anwendungen, die Viva con Agua zu Verfügung stellt.<br/>Um es dir als Nutzer*in einerseits möglichst einfach zu machen und gleichzeitig möglichst hohe Sicherheit zu bieten, nutzen wir hierfür ein zentrales Login, das sogenannte Single Sign-On (SSO). Single Sign-On ist ein Authentifizierungsverfahren, bei dem sich Benutzer*innen auf sichere Weise an mehreren Anwendungen und Websites anmelden können, dabei jedoch nur ein einziges Mal ihre Zugangsdaten eingeben müssen. Dieses Verfahren kennst du vielleicht schon von Plattformen wie Google oder Facebook.<br/>Das bedeutet, dass du dich künftig mit deinen Benutzerdaten problemlos bei unseren Services anmelden kannst, ohne dir für jede Seite ein neues Konto anlegen zu müssen. Deine Daten werden dabei nur verschlüsselt übertragen und liegen dabei auf unseren eigenen Servern - die nebenbei auch zu 100% mit Wasserkraft betrieben werden.<br/><strong>Nach dem Login oder der Registrierung wirst du automatisch wieder zu der Anwendungen weitergeleitet, von der du gekommen bist.</strong>"
     }
   },
+  "logout": {
+    "redirect": "Einen Moment, du wirst ausgeloggt und dann weitergeleitet..."
+  },
   "sign": {
     "register": {
       "title": "Registrieren",
@@ -95,6 +98,33 @@
       "password": {
         "placeholder": "Dein Passwort",
         "error": "Bitte gib dein Passwort ein"
+      },
+      "reset_pw": "Passwort zurücksetzen",
+      "new_token": "Bestätigungsmail zusenden"
+    },
+    "reset_pw": {
+      "title": "Passwort neu setzen",
+      "email": {
+        "placeholder": "E-Mail Adresse",
+        "error": "Bitte gib eine gültige E-Mail Adresse ein"
+      },
+      "password1": {
+        "placeholder": "Dein neues Passwort",
+        "error": "Bitte gib ein neues Passwort ein"
+      },
+      "password2": {
+        "placeholder": "Passwort bestätigen",
+        "error": {
+          "same": "Deine Passwörter stimmen nicht überein",
+          "enter": "Bitte bestätige dein neues Passwort"
+        }
+      }
+    },
+    "new_token": {
+      "title": "Bestätigungsmail anfordern",
+      "email": {
+        "placeholder": "E-Mail Adresse",
+        "error": "Bitte gib eine gültige E-Mail Adresse ein"
       }
     }
   }
