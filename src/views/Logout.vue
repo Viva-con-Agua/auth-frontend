@@ -1,5 +1,7 @@
-<template>
-    <div></div>
+<template>    
+    <div class="redirect-info">
+        <h1>{{ $t('logout.redirect') }}</h1>
+    </div>
 </template>
 <script>
 export default {
@@ -23,3 +25,8 @@ export default {
     }
 }
 </script>
+<style lang="scss">
+    .redirect-info {
+        text-align: center;
+    }
+</style>

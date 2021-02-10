@@ -4,8 +4,13 @@ dev.mode
 @import "_mixins.scss";
 
 
+html, body {
+  height: 100%;
+}
+
 body {
   margin: 0 !important;
+  display: flex;
 }
 
 * {

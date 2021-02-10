@@ -40,6 +40,9 @@
       "description": "The <div class='text-highlight'>Viva con Agua Portal</div> is the central point of contact for all web applications provided by Viva con Agua.<br/>To make it as easy as possible for you as a user and at the same time to offer the highest possible security, we use a central login, the so-called Single Sign-On (SSO). Single sign-on is an authentication process that allows users to securely log in to multiple applications and websites, but only have to enter their credentials once. You may already be familiar with this process from platforms such as Google or Facebook.<br/>This means that in the future you can easily log in to our services with your user data without having to create a new account for each site. Your data will only be transmitted in encrypted form and will be stored on our own servers - which, by the way, are also powered by 100% hydropower.<br/><strong>After your login or registration, you will be automatically redirected back to the application you came from.</strong>"
     }
   },
+  "logout": {
+    "redirect": "One moment, we redirect you after the logout..."
+  },
   "sign": {
     "register": {
       "title": "Register",

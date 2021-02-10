@@ -2,15 +2,15 @@
     <vca-form>
         <vca-input
             ref="email"
-            :errorMsg="$t('sign.new_token.email.error')"
-            :placeholder="$t('sign.new_token.email.placeholder')"
+            :errorMsg="$t('sign.reset_pw.email.error')"
+            :placeholder="$t('sign.reset_pw.email.placeholder')"
             v-model.trim="email" 
             :rules="$v.email">
         </vca-input>
         <button
             class="vca-button"
             @click.prevent="validate">
-            {{ $t('sign.new_token.title') }}
+            {{ $t('sign.login.reset_pw') }}
         </button>
 
     </vca-form>
@@ -18,7 +18,7 @@
 <script>
 import { required, email } from 'vuelidate/lib/validators'
 export default {
-    name: 'NewToken',
+    name: 'ResetPassword',
     data() {
         return {
             login: false,
@@ -39,8 +39,8 @@ export default {
                 this.submit()
             }
         },
-        submit() {
-            this.$store.dispatch({type: 'user/resetConfirmationToken', data: this.newToken})
+        submit() {            
+            this.$store.dispatch({type: 'user/resetPasswordToken', data: this.newToken})
                 .then((response) => {
                     this.open(response)
                 })
