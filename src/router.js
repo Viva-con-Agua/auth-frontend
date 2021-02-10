@@ -51,15 +51,16 @@ const routes = [
     {
         path: '/logout',
         name: 'Logout',
-        component: loadView('Logout')
-    },
+        component: loadView('Logout'),
+        props: route => ({ callback: route.query.callback })
+    },    
     {
         path: '/reset/:token',
         name: 'PasswordReset',
         component: loadView('ResetPassword'),
         meta: { requiresAuth: false },
         props: true
-    },
+    }
 
 ]
 
