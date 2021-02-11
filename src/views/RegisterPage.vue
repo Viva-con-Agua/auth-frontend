@@ -15,10 +15,15 @@ export default {
         scope: {
             type: String,
             default: ""
+        },
+        callback: {
+            type: String,
+            default: null
         }
     },
     created() {
         this.$store.commit('register/scope', this.scope)
+        this.$store.commit('callback', this.callback)
     },
     components: {
         Register, 

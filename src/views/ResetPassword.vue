@@ -38,17 +38,34 @@ export default {
     },
     data() {
         return {
-            reset: {
-                token: this.token,
-                password: ''
-            
-            },
             password_check: ''
         }
     },
+    created() {
+        this.reset.code = this.token
+    },
+    computed:{
+        pwError () {
+            if (this.$v.password_check.required && !this.$v.password_check.sameAs) {
+                return this.$t('sign.reset_pw.password2.error.same')
+            }
+            return this.$t('sign.reset_pw.password2.error.enter')
+        },
+
+        reset: {
+            get () {
+                return this.$store.state.login.resetPasswordToken
+            },
+            set (value) {
+                this.$store.commit('login/resetPasswordToken', value)
+            }
+ 
+        }
+    },
+
     validations: {
         reset: {
-            token: {
+            code: {
                 required
             },
             password: {
@@ -58,14 +75,6 @@ export default {
         password_check: {
             required,
             sameAs: sameAs(function () { return this.reset.password })
-        }
-    },
-    computed: {
-        pwError () {
-            if (this.$v.password_check.required && !this.$v.password_check.sameAs) {
-                return this.$t('sign.reset_pw.password2.error.same')
-            }
-            return this.$t('sign.reset_pw.password2.error.enter')
         }
     },
     methods: {
@@ -79,7 +88,7 @@ export default {
         },
         submit(){
             //this.$store.commit('loadingFlow')
-            this.$store.dispatch({type: "user/resetPassword", data: this.reset})
+            this.$store.dispatch({type: "login/resetPassword", data: this.reset})
                 .then(
                     //this.$router.push({name: 'Sign'})
                 )

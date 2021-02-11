@@ -74,7 +74,7 @@ export default {
         submit() {
             this.$store.dispatch({type: 'login/signin'})
                 .then((data)=> {
-                    window.location = data.redirect_url + "?code=" + data.code
+                    window.location = data.redirect_url + "?code=" + data.code + "&callback=" + this.$store.getters.callback
                 })
                 .catch ((error) => {
                     this.open({ title: this.$t('error.title'), body: error, type: "error" })

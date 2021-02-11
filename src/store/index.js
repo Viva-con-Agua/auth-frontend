@@ -9,5 +9,18 @@ export default new Vuex.Store({
         namespaced: true,
         register: register,
         login: login
+    },
+    state: {
+        callback: null
+    },
+    getters: {
+        callback(state) {
+            return state.callback
+        }
+    },
+    mutations: {
+        callback(state, value) {
+            state.callback = value
+        }
     }
 })
