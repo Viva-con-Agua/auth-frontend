@@ -4,8 +4,8 @@
             ref="email"
             :errorMsg="$t('sign.new_token.email.error')"
             :placeholder="$t('sign.new_token.email.placeholder')"
-            v-model.trim="email" 
-            :rules="$v.email">
+            v-model.trim="reset.email" 
+            :rules="$v.reset.email">
         </vca-input>
         <button
             class="vca-button"
@@ -25,10 +25,23 @@ export default {
             email: ''
         }
     },
+    computed: {
+        reset: {
+            get () {
+                return this.$store.state.login.resetPassword
+            },
+            set (value) {
+                this.$store.commit('login/resetPassword', value)
+            }
+ 
+        }
+    },
     validations: {
+        reset:{
         email: {
             required,
             email
+        }
         }
     },
     methods: {
@@ -40,7 +53,7 @@ export default {
             }
         },
         submit() {
-            this.$store.dispatch({type: 'user/resetConfirmationToken', data: this.newToken})
+            this.$store.dispatch({type: 'login/resetConfirmationToken'})
                 .then((response) => {
                     this.open(response)
                 })

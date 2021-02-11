@@ -25,6 +25,10 @@ export default {
         scope: {
             type: String,
             default: ""
+        },
+        callback: {
+            type: String,
+            default: null
         }
     },
     data() {
@@ -34,6 +38,7 @@ export default {
     },
     created() {
         this.$store.commit('login/scope', this.scope)
+        this.$store.commit('callback', this.callback)
     }
     /*
     watch :{
