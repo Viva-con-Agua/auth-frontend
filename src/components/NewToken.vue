@@ -1,5 +1,5 @@
 <template>
-    <vca-form>
+    <div class="text-left">
         <vca-input
             ref="email"
             :errorMsg="$t('sign.new_token.email.error')"
@@ -13,18 +13,12 @@
             {{ $t('sign.new_token.title') }}
         </button>
 
-    </vca-form>
+    </div>
 </template>
 <script>
 import { required, email } from 'vuelidate/lib/validators'
 export default {
     name: 'NewToken',
-    data() {
-        return {
-            login: false,
-            email: ''
-        }
-    },
     computed: {
         reset: {
             get () {
@@ -37,16 +31,16 @@ export default {
         }
     },
     validations: {
-        reset:{
-        email: {
-            required,
-            email
-        }
+        reset: {
+            email: {
+                required,
+                email
+            }
         }
     },
     methods: {
         validate() {
-            if (this.$v.invalid === true ) {
+            if (this.$v.$invalid === true) {
                 this.$refs.email.validate()
             } else {
                 this.submit()

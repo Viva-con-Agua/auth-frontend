@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="text-left">
         <vca-input
             ref="email"
             :errorMsg="$t('sign.login.email.error')"
@@ -64,7 +64,7 @@ export default {
     },
     methods: {
         validate() {
-            if (this.$v.$invalid) {
+            if (this.$v.$invalid === true) {
                 this.$refs.email.validate()
                 this.$refs.password.validate()
             } else {

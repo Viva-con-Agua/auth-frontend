@@ -1,11 +1,11 @@
 <template>
-    <vca-form>
+    <div class="text-left">
         <vca-input
             ref="email"
             :errorMsg="$t('sign.reset_pw.email.error')"
             :placeholder="$t('sign.reset_pw.email.placeholder')"
             v-model.trim="reset.email" 
-            :rules="$v.email">
+            :rules="$v.reset.email">
         </vca-input>
         <button
             class="vca-button"
@@ -13,7 +13,7 @@
             {{ $t('sign.login.reset_pw') }}
         </button>
 
-    </vca-form>
+    </div>
 </template>
 <script>
 import { required, email } from 'vuelidate/lib/validators'
@@ -37,14 +37,16 @@ export default {
         }
     },
     validations: {
-        email: {
-            required,
-            email
+        reset: {
+            email: {
+                required,
+                email
+            }
         }
     },
     methods: {
         validate() {
-            if (this.$v.invalid === true ) {
+            if (this.$v.$invalid === true) {
                 this.$refs.email.validate()
             } else {
                 this.submit()

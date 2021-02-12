@@ -124,20 +124,19 @@ export default {
     },
     validations: {
         user: {
-                email: {
-                    required,
-                    email
-                },
-                password: {
-                    required
-                },
-                display_name: {
-                    required
-                },
-                
-                privacy_policy: {
-                    sameAs: sameAs( () => true ) 
-                }
+            email: {
+                required,
+                email
+            },
+            password: {
+                required
+            },
+            display_name: {
+                required
+            },                
+            privacy_policy: {
+                sameAs: sameAs( () => true ) 
+            }
         },
         password_check: {
             required,
@@ -154,6 +153,7 @@ export default {
                 this.$refs.email.validate()
                 this.$refs.password.validate()
                 this.$refs.password_check.validate()
+                this.$refs.privacy_policy.validate()
             } else {
                 this.submit()
             }
