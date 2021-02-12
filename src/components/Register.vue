@@ -159,17 +159,21 @@ export default {
             }
         },
         submit() {
-            this.$store.commit('loadingFlow')
+            //this.$store.commit('loadingFlow')
             this.$store.dispatch({type: 'register/register'})
-                .then(() => {
-                    this.$store.dispatch({type: 'navigation/current', data: 'Home'})
-                    this.$router.push({ name: 'Donation' })
+                .then((data)=> {
+                    if (data.message === "no_token") {
+                        this.$router({name: "Login", query: {scope: data.scope}})
+                    } else {
+                        if (this.$store.getters.callback !== 'null' || this.$store.getters.callback !== null) {
+                            window.location = data.payload.redirect_url + "?code=" + data.payload.code
+                        } else {
+                            window.location = data.payload.redirect_url + "?code=" + data.payload.code + "&callback=" + this.$store.getters.callback
+                        }
+                    }
                 })
-                .catch (error => {
+                .catch ((error) => {
                     this.open(error)
-                })
-                .finally(() => {
-                    this.$store.commit('loadingFlow')
                 })
         },
         changeKnown(nVal) {
