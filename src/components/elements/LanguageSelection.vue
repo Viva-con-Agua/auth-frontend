@@ -17,19 +17,47 @@ export default {
     }
   },
   created() {
+
+    /* 
+     * Language priority - empty localStorage
+     * 1. If no language is already set, check for query
+     * 2. If no query is set, use default lang 
+     * Language priority - lang in localStorage
+     * 1. is localStorage differs from query, use query (I guess someone tried to change lang in query then - H4XX0RE S7YL3)
+     * 2. use localStorage
+     */
+
     if (localStorage.language === undefined) {
-      localStorage.language = this.$i18n.locale.toLowerCase()
-    } else {
-      this.$i18n.locale = localStorage.language
+
+      if (this.$route.query.language != undefined && this.languages.includes(this.$route.query.language)) {
+        this.changeLanguage(this.$route.query.language)
+      } else {
+        this.changeLanguage(this.$i18n.locale.toLowerCase())
+      }
+
+    } else if (this.$route.query.language != undefined && localStorage.language != this.$route.query.language) {
+      this.changeLanguage(this.$route.query.language)
     }
+    this.changeLanguage(localStorage.language)
   },
   methods: {
     changeLanguage(language)  {
       localStorage.language = language
       this.$i18n.locale = language
       this.language = language
+      /* We need to replace the language in the query if one is set to get a stringent language handling */
+      if (this.$route.query.language != undefined) {
+        this.$router.replace({query: {...this.$route.query, language: language}})
+      }
     }
-  }
+  },    
+  watch :{
+    $route: function() {
+      if (this.$route.query.language != undefined && localStorage.language != this.$route.query.language) {
+        this.changeLanguage(this.$route.query.language)
+      }
+    },
+  },
 };
 </script>
 <style lang="scss">
