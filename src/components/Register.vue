@@ -3,6 +3,7 @@
         <vca-input
             ref="email"
             :errorMsg="$t('sign.register.email.error')"
+            @input="lower"
             :placeholder="$t('sign.register.email.placeholder')"
             v-model.trim="user.email" 
             :rules="$v.user.email">
@@ -171,6 +172,9 @@ export default {
                 .finally(() => {
                     this.$store.commit('loadingFlow')
                 })
+        },
+        lower() {
+            this.user.email = this.user.email.toLowerCase()
         },
         changeKnown(nVal) {
             if (nVal.length > 0) {

@@ -3,6 +3,7 @@
         <vca-input
             ref="email"
             :errorMsg="$t('sign.login.email.error')"
+            @input="lower"
             :placeholder="$t('sign.login.email.placeholder')"
             v-model.trim="credentials.email" 
             :rules="$v.credentials.email">
@@ -70,6 +71,9 @@ export default {
             } else {
                 this.submit()
             }
+        },
+        lower() {
+            this.credentials.email = this.credentials.email.toLowerCase()
         },
         submit() {
             this.$store.dispatch({type: 'login/signin'})
