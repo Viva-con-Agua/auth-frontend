@@ -77,7 +77,7 @@ const register = {
             return new Promise((resolve, reject) => {
                 apiSession.post('/v1/auth/register', state.user)
                 .then(response => {
-                    commit('redirectData', response.data), 
+                    commit('login/redirectData', response.data), 
                     commit('cleanCredentials'),
                     resolve(response.data)
                 })
@@ -96,7 +96,7 @@ const register = {
                     if (response.status === 201) {
                         resolve(state.msg.confirm_token.success.confirmed)
                     }
-                    resolve()
+                    resolve(response.data)
                 })
                 .catch(error => {
                     if (error.response.status === 400) {
