@@ -19,7 +19,7 @@ const login = {
         },
         redirectData: null,
         logout: null,
-msg: {
+        msg: {
             reset_password: {
                 success: {
                     updated: {

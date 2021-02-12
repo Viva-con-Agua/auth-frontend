@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="text-left">
         <vca-input
             ref="email"
             :errorMsg="$t('sign.login.email.error')"

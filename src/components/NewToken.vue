@@ -1,11 +1,11 @@
 <template>
-    <vca-form>
+    <div class="text-left">
         <vca-input
             ref="email"
             :errorMsg="$t('sign.new_token.email.error')"
             :placeholder="$t('sign.new_token.email.placeholder')"
             v-model.trim="reset.email" 
-            :rules="$v.reset.email">
+            :rules="$v.email">
         </vca-input>
         <button
             class="vca-button"
@@ -13,7 +13,7 @@
             {{ $t('sign.new_token.title') }}
         </button>
 
-    </vca-form>
+    </div>
 </template>
 <script>
 import { required, email } from 'vuelidate/lib/validators'
@@ -37,11 +37,9 @@ export default {
         }
     },
     validations: {
-        reset:{
         email: {
             required,
             email
-        }
         }
     },
     methods: {

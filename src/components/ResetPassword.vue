@@ -1,5 +1,5 @@
 <template>
-    <vca-form>
+    <div class="text-left">
         <vca-input
             ref="email"
             :errorMsg="$t('sign.reset_pw.email.error')"
@@ -13,7 +13,7 @@
             {{ $t('sign.login.reset_pw') }}
         </button>
 
-    </vca-form>
+    </div>
 </template>
 <script>
 import { required, email } from 'vuelidate/lib/validators'

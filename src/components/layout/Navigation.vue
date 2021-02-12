@@ -29,6 +29,10 @@ export default {
             width: auto;
         }
     }
+    .link {
+        margin: auto;
+        width: max-content; 
+    }
 }
 
 </style>
