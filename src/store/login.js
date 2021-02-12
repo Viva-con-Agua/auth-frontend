@@ -41,22 +41,6 @@ const login = {
                     }
                 }
             },
-            confirm_token: {
-                success: {
-                    confirmed: {
-                        title: "Super! ",
-                        body: "Deine E-Mail Adresse wurde erfolgreich bestätigt! Du kannst dich nun mit deiner E-Mail Adresse und deinem Passwort einloggen.",
-                        type: "success"
-                    }
-                },
-                errors: {                    
-                    unknown: {
-                        title: "Uuuups",
-                        body: "Dein Konto konnte nicht bestätigt werden! Bitte versuche dich anzumelden, dort kannst du dir die E-Mail Bestätigung erneut zusenden.",
-                        type: "error"
-                    }
-                }
-            },
             sign_up: {
                 success: {
                     new_token: {
@@ -195,7 +179,10 @@ const login = {
                             resolve(response.data.payload)
                     })
                     .catch(error => {
-                        reject(error)
+                        if (error.response.status === 404) {
+                            reject(state.msg.sign_in.errors.email)
+                        }
+                        reject(state.msg.defaults.errors.unknown)
                     })
             })
         },
@@ -222,6 +209,8 @@ const login = {
                     .catch(error => {
                         if (error.response.status === 401) {
                             reject(state.msg.defaults.errors.unknown)
+                        } else if (error.response.status === 404) {
+                            reject(state.msg.reset_password.errors.not_found)
                         }
                         reject(state.msg.defaults.errors.unknown)
                     })

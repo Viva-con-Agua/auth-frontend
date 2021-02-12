@@ -5,7 +5,7 @@
             :errorMsg="$t('sign.reset_pw.email.error')"
             :placeholder="$t('sign.reset_pw.email.placeholder')"
             v-model.trim="reset.email" 
-            :rules="$v.email">
+            :rules="$v.reset.email">
         </vca-input>
         <button
             class="vca-button"
@@ -37,14 +37,16 @@ export default {
         }
     },
     validations: {
-        email: {
-            required,
-            email
+        reset: {
+            email: {
+                required,
+                email
+            }
         }
     },
     methods: {
         validate() {
-            if (this.$v.invalid === true ) {
+            if (this.$v.$invalid === true) {
                 this.$refs.email.validate()
             } else {
                 this.submit()
