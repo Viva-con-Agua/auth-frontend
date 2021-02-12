@@ -8,7 +8,7 @@ const register = {
             first_name: '',
             last_name: '',
             display_name: '',
-            country: 'de_DE',
+            country: 'de',
             privacy_policy: false,
             offset: {
                 known_from: "UNKOWN",
