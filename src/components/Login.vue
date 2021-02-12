@@ -77,7 +77,7 @@ export default {
                     window.location = data.redirect_url + "?code=" + data.code + "&callback=" + this.$store.getters.callback
                 })
                 .catch ((error) => {
-                    this.open({ title: this.$t('error.title'), body: error, type: "error" })
+                    this.open(error)
                 })
         },
         register() {
