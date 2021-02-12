@@ -3,6 +3,7 @@
         <vca-input
             ref="email"
             :errorMsg="$t('sign.reset_pw.email.error')"
+            @input="lower"
             :placeholder="$t('sign.reset_pw.email.placeholder')"
             v-model.trim="reset.email" 
             :rules="$v.reset.email">
@@ -63,6 +64,9 @@ export default {
                 .finally(() => {
                     //this.$store.commit('loadingFlow')
                 })
+        },
+        lower() {
+            this.reset.email = this.reset.email.toLowerCase()
         },
         open(msg) {
             if (msg !== undefined) {
