@@ -14,12 +14,10 @@ export default {
     },
     created () {
         this.$store.dispatch({type: 'login/logoutReq'})
-            .then(response => {
-                console.log(response)
+            .then(() => {
                 window.location = this.callback
            })
-           .catch(error=> {
-                console.log(error)
+           .catch(() => {
                 window.loaction = this.callback
            })
     }

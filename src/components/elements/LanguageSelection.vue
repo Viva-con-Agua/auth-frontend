@@ -42,9 +42,9 @@ export default {
   },
   methods: {
     changeLanguage(language)  {
-      localStorage.language = language
       this.$i18n.locale = language
       this.language = language
+      localStorage.language = language
       /* We need to replace the language in the query if one is set to get a stringent language handling */
       if (this.$route.query.language != undefined) {
         this.$router.replace({query: {...this.$route.query, language: language}})

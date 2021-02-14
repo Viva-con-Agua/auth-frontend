@@ -22,21 +22,5 @@ export default {
     components: {
         Register, 
     }
-    /*
-    watch :{
-        session: function(val) {
-            if (val === true) {
-                this.$store.dispatch({type: 'navigation/current', data: 'Home'})
-                this.$router.push({ name: 'Home' })
-            }
-        },
-    },*/
-    /*
-    created () {
-        if (this.session === true) {
-            this.$store.dispatch({type: 'navigation/current', data: 'Home'})
-            this.$router.push({ name: 'Home' })
-        }
-    }*/
 }
 </script>

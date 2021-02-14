@@ -46,11 +46,13 @@ export default {
     mounted() {
         this.$store.commit("register/code", this.code)
         this.$store.dispatch({type: 'register/confirm'})
-            .then( data => {
-                if (data.message === "no_token") {
+            .then(data => {
+                if (data.payload.message === "no_token") {
                     this.$router({name: "Login", query: {scope: data.scope}})
                 } else if(data.message === "has_session") {
                     window.location = data.payload.redirect_url + "?code=" + data.payload.code
+                } else {
+                    this.open(data)
                 }
             })
             .catch( (error) => { 
