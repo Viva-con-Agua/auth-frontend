@@ -38,6 +38,11 @@ const login = {
                         title: "Uuuups",
                         body: "Das Token konnte nicht gefunden werden.",
                         type: "error"
+                    },
+                    already_confirmed: {
+                        title: "Uuuups",
+                        body: "Das Konto ist bereits bestätigt oder existiert nicht.",
+                        type: "error"
                     }
                 }
             },
@@ -181,6 +186,8 @@ const login = {
                     .catch(error => {
                         if (error.response.status === 404) {
                             reject(state.msg.sign_in.errors.email)
+                        } else if (error.response.status === 401) {
+                            reject(state.msg.sign_in.errors.password)
                         }
                         reject(state.msg.defaults.errors.unknown)
                     })
@@ -207,10 +214,10 @@ const login = {
                         resolve()
                     })
                     .catch(error => {
-                        if (error.response.status === 401) {
-                            reject(state.msg.defaults.errors.unknown)
-                        } else if (error.response.status === 404) {
-                            reject(state.msg.reset_password.errors.not_found)
+                        if (error.response.status === 404) {
+                            reject(state.msg.reset_password.errors.email)
+                        } else if (error.response.status === 409) {
+                            reject(state.msg.reset_password.errors.already_confirmed)
                         }
                         reject(state.msg.defaults.errors.unknown)
                     })
@@ -240,7 +247,7 @@ const login = {
             return new Promise((resolve, reject) => {
                 apiSession.post('/v1/auth/login/reset', state.resetPassword)
                     .then(response => {
-                        if (response.status === 201) {
+                        if (response.status === 200) {
                             resolve(state.msg.sign_in.success.new_pw)
                         }
                         resolve()

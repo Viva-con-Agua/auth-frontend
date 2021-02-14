@@ -1,5 +1,5 @@
 <template>
-    <vca-card>
+    <div class="text-left">
         <vca-field>
                 <vca-input
                     ref="password"
@@ -23,7 +23,7 @@
                 {{ $t('sign.reset_pw.title') }}
             </button>
         </vca-field>
-    </vca-card>
+    </div>
 </template>
 <script>
 
@@ -89,9 +89,10 @@ export default {
         submit(){
             //this.$store.commit('loadingFlow')
             this.$store.dispatch({type: "login/resetPassword", data: this.reset})
-                .then(
+                .then((response) => {
+                    this.open(response)
                     //this.$router.push({name: 'Sign'})
-                )
+                })
                 .catch(error => {
                      this.open(error)
                 })/*
