@@ -163,7 +163,7 @@ export default {
             //this.$store.commit('loadingFlow')
             this.$store.dispatch({type: 'register/register'})
                 .then((data)=> {
-                    if (data.message === "no_token") {
+                    if (data.payload.message === "no_token") {
                         this.$router({name: "Login", query: {scope: data.scope}})
                     } else {
                         if (this.$store.getters.callback !== 'null' || this.$store.getters.callback !== null) {
