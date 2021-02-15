@@ -96,7 +96,7 @@ export default {
       },
       language: {
         type: String,
-        default: 'de',
+        default: localStorage.language,
         validator: function (value) {
           return ['de', 'ch', 'za'].indexOf(value) !== -1
         }
