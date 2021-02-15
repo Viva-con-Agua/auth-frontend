@@ -134,7 +134,13 @@ export default {
             },
             display_name: {
                 required
-            },                
+            },
+            first_name: {
+                required
+            },
+            last_name: {
+                required
+            },             
             privacy_policy: {
                 sameAs: sameAs( () => true ) 
             }
