@@ -164,7 +164,8 @@ export default {
             this.$store.dispatch({type: 'register/register'})
                 .then((data)=> {
                     if (data.payload.message === "no_token") {
-                        this.$router({name: "Login", query: {scope: data.scope}})
+                        /* TODO get scope from data.scope */
+                        this.$router({name: "Login", query: {scope: 'move4water'}})
                     } else {
                         if (this.$store.getters.callback !== 'null' || this.$store.getters.callback !== null) {
                             window.location = data.payload.redirect_url + "?code=" + data.payload.code
