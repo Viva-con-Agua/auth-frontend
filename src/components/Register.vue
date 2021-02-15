@@ -159,6 +159,9 @@ export default {
             if (this.$v.$invalid === true) {
                 this.$refs.email.validate()
                 this.$refs.password.validate()
+                this.$refs.first_name.validate()
+                this.$refs.last_name.validate()
+                this.$refs.display_name.validate()
                 this.$refs.password_check.validate()
                 this.$refs.privacy_policy.validate()
             } else {
@@ -171,7 +174,6 @@ export default {
                 .then((data)=> {
                     if (data.payload.message === "no_token") {
                         /* TODO get scope from data.scope */
-                        console.log(data)
                         this.$router.push({name: "Login", query: {scope: 'move4water', msg: data.message, source: 'register'}})
                     } else {
                         if (this.$store.getters.callback !== 'null' || this.$store.getters.callback !== null) {
@@ -182,7 +184,6 @@ export default {
                     }
                 })
                 .catch ((error) => {
-                    console.log(error)
                     this.open(error)
                 })
         },
