@@ -31,8 +31,7 @@ const routes = [
         name: 'Login',
         component: loadView('LoginPage'),
         meta: { requiresAuth: false, title: "LoginPage" },
-        props: route => ({ scope: route.query.scope, language: route.query.language, callback: route.query.callback })
-
+        props: route => ({ scope: route.query.scope, language: route.query.language, callback: route.query.callback, msg: route.query.msg, source: route.query.source })
     },
     {
         path: '/register',
