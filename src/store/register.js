@@ -103,9 +103,6 @@ const register = {
             return new Promise((resolve, reject) =>{
                 apiSession.post('/v1/auth/register/confirm', state.code)
                 .then(response => {
-                    if (response.status === 201) {
-                        resolve(state.msg.confirm_token.success.confirmed)
-                    }
                     resolve(response.data)
                 })
                 .catch(error => {
