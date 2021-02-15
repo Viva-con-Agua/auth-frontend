@@ -15,10 +15,12 @@ export default {
     created () {
         this.$store.dispatch({type: 'login/logoutReq'})
             .then(() => {
-                window.location = this.callback
+                /* TODO change to this.callback when callback encoded */
+                window.location = 'https://www.move4water.org'
            })
            .catch(() => {
-                window.loaction = this.callback
+                /* TODO change to this.callback when callback encoded */
+                window.location = 'https://www.move4water.org'
            })
     }
 }
