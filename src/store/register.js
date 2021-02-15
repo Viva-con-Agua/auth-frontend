@@ -31,6 +31,11 @@ const register = {
                         title: "Ahh ",
                         body: "Du hast wohl schon einen Account, log dich einfach ein!",
                         type: "error"
+                    },
+                    pw: {
+                        title: "Uuuups ",
+                        body: "Dein Passwort muss aus mindestens acht Zeichen bestehen",
+                        type: "error"
                     }
                 }
             },
@@ -84,6 +89,8 @@ const register = {
                 .catch(error => {
                     if (error.response.status === 409) {
                         reject(state.msg.sign_up.errors.confict)
+                    } else if (error.response.status === 400) {
+                        reject(state.msg.sign_up.errors.pw)
                     }
                     reject(state.msg.defaults.errors.unknown)
                 })
