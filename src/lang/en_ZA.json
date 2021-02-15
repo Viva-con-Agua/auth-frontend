@@ -99,6 +99,20 @@
         "placeholder": "Your password",
         "error": "Please enter your password"
       },
+      "msg": {
+        "successful_created": {
+          "register": {
+            "title": "Yeah!",
+            "body": "Your registration has been successful. We have sent you an email to confirm your email address. You have to confirm your email address before you can login.",
+            "type": "success"
+          },
+          "confirm": {
+            "title": "Yeah!",
+            "body": "Your email address confirmation was successful. You can now login.",
+            "type": "success"
+          }
+        }
+      },
       "reset_pw": "Reset password",
       "new_token": "Resend confirmation link"
     },

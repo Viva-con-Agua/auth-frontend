@@ -62,6 +62,15 @@ export default {
     created() {
         this.$store.commit('login/scope', this.$route.query.scope)
         this.$i18n.locale = this.$route.query.language
+
+        if (this.$route.query.msg && this.$route.query.source) {
+            this.open({
+                title: this.$t('sign.login.msg.' + this.$route.query.msg + '.' + this.$route.query.source + '.title'),
+                body: this.$t('sign.login.msg.' + this.$route.query.msg + '.' + this.$route.query.source + '.body'),
+                type: this.$t('sign.login.msg.' + this.$route.query.msg + '.' + this.$route.query.source + '.type')
+            })
+        }
+
     },
     methods: {
         validate() {

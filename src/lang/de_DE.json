@@ -99,6 +99,20 @@
         "placeholder": "Dein Passwort",
         "error": "Bitte gib dein Passwort ein"
       },
+      "msg": {
+        "successful_created": {
+          "register": {
+            "title": "Super!",
+            "body": "Du bist nun erfolgreich registriert. Wir haben dir eine E-Mail mit einem Link zur Bestätugng deiner E-Mail Adresse zugeschickt. Bestätige diese um dich einloggen zu können.",
+            "type": "success"
+          },
+          "confirm": {
+            "title": "Super!",
+            "body": "Deine E-Mail Adresse wurde nun erfolgreich bestätigt. Du kannst dich nun anmelden.",
+            "type": "success"
+          }
+        }
+      },
       "reset_pw": "Passwort zurücksetzen",
       "new_token": "Bestätigungsmail zusenden"
     },

@@ -75,6 +75,9 @@ const register = {
         },
         code(state, value) {
             state.code.code = value
+        },
+        country(state, value) {
+            state.user.country = value
         }
     },
     actions: {
