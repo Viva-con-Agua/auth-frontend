@@ -49,7 +49,7 @@ export default {
             .then(data => {
                 if (data.payload.message === "no_token") {
                     /* TODO get scope from data.scope */
-                    this.$router({name: "Login", query: {scope: 'move4water'}})
+                    this.$router.push({name: "Login", query: {scope: 'move4water'}})
                 } else if(data.message === "has_session") {
                     window.location = data.payload.redirect_url + "?code=" + data.payload.code
                 } else {
