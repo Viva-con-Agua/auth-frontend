@@ -159,6 +159,9 @@ export default {
             if (this.$v.$invalid === true) {
                 this.$refs.email.validate()
                 this.$refs.password.validate()
+                this.$refs.first_name.validate()
+                this.$refs.last_name.validate()
+                this.$refs.display_name.validate()
                 this.$refs.password_check.validate()
                 this.$refs.privacy_policy.validate()
             } else {
