@@ -174,7 +174,6 @@ export default {
                 .then((data)=> {
                     if (data.payload.message === "no_token") {
                         /* TODO get scope from data.scope */
-                        console.log(data)
                         this.$router.push({name: "Login", query: {scope: 'move4water', msg: data.message, source: 'register'}})
                     } else {
                         if (this.$store.getters.callback !== 'null' || this.$store.getters.callback !== null) {
@@ -185,7 +184,6 @@ export default {
                     }
                 })
                 .catch ((error) => {
-                    console.log(error)
                     this.open(error)
                 })
         },
