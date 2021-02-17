@@ -9,7 +9,7 @@
     },
     "de-CH": {
       "locale": "de-CH",
-      "name": "Schwizerdütsch",
+      "name": "Schweizerdeutsch",
       "label": "ch"
     },
     "en-ZA": {
@@ -24,57 +24,127 @@
   "currency": {
     "title": "Währung"
   },
-  "countdown": {
-    "starts": "NOCH",
-    "days": "TAGE",
-    "hours": "Stunden",
-    "minutes": "Minuten",
-    "seconds": "Sekunden",
-    "event": "LET’S RUN TOGETHER - AM 22. MÄRZ GEHT'S LOS"
+  "footer": {
+    "legal": {
+      "dataSecurity": "Datenschutz",
+      "imprint": "Impressum",
+      "language": "Sprache",
+      "currency": "Währung"
+    }
   },
-  "faqs":{
-    "run4w": {
-      "0": {
-        "header": "Was muss ich über den Accenture Christmas Run 2020 wissen?",
-        "body": "Der Accenture Christmas Run ist ein virtuelles Spendenlaufevent, das vom 6.-13. Dezember 2020 stattfindet. Organisiert wird der Lauf vom gemeinnützigen Verein Viva con Agua mit dem Ziel, eine Schulen in der Eastern Cape Providence in Südafrika mit Spenden zu unterstützen. Die Anmeldung ist bis zum 13. Dezember um 21.00 Uhr möglich. Die gewählte(n) Strecke(n) sollte(n) bis zum 13. Dezember, 23.59 Uhr absolviert werden – wann und wo entscheidet jeder/jede LäuferIn selbst. Für den angezeigten Ergebnisfortschritt ist es notwendig, die Laufergebnis nach dem eigenen Lauf final einzutragen. Die Teilnahme ist grundsätzlich kostenlos, eine entsprechende Spende ist jedoch sehr gerne erwünscht."
+  "header": {
+    "sso": "Viva con Agua Portal",
+    "moreInfo": {
+      "button": "mehr Infos",
+      "title": "Viva con Agua Portal",
+      "description": "Das <div class='text-highlight'>Viva con Agua Portal</div> ist die zentrale Anlaufstelle für alle Web-Anwendungen, die Viva con Agua zu Verfügung stellt.<br/>Um es dir als Nutzer*in einerseits möglichst einfach zu machen und gleichzeitig möglichst hohe Sicherheit zu bieten, nutzen wir hierfür ein zentrales Login, das sogenannte Single Sign-On (SSO). Single Sign-On ist ein Authentifizierungsverfahren, bei dem sich Benutzer*innen auf sichere Weise an mehreren Anwendungen und Websites anmelden können, dabei jedoch nur ein einziges Mal ihre Zugangsdaten eingeben müssen. Dieses Verfahren kennst du vielleicht schon von Plattformen wie Google oder Facebook.<br/>Das bedeutet, dass du dich künftig mit deinen Benutzerdaten problemlos bei unseren Services anmelden kannst, ohne dir für jede Seite ein neues Konto anlegen zu müssen. Deine Daten werden dabei nur verschlüsselt übertragen und liegen dabei auf unseren eigenen Servern - die nebenbei auch zu 100% mit Wasserkraft betrieben werden.<br/><strong>Nach dem Login oder der Registrierung wirst du automatisch wieder zu der Anwendungen weitergeleitet, von der du gekommen bist.</strong>"
+    }
+  },
+  "logout": {
+    "redirect": "Einen Moment, du wirst ausgeloggt und dann weitergeleitet..."
+  },
+  "confirm": {
+    "error": {
+      "title": "Uuups",
+      "body": "Wir konnten deine E-Mail Adresse nicht korrekt bestätigen, bitte sende dir erneut einen Code zu und wiederhole den Prozess"
+    }
+  },
+  "sign": {
+    "register": {
+      "title": "Registrieren",
+      "login": "Ich habe bereits einen Account und möchte mich {0}",
+      "email": {
+        "placeholder": "E-Mail Adresse",
+        "error": "Bitte gib eine gültige E-Mail Adresse ein"
       },
-      "1": {
-        "header": "Wie kann ich mehr über den Lauf oder das Spendeprojekt erfahren?",
-        "body": "Es gibt zwei Teams-Calls am 2. und 9. Dezember, jeweils um 12:30 Uhr, in dem wir Euch gerne alle weiteren Fragen beantworten. Ihr könnt den Calls über {0} beitreten."
+      "displayname": {
+        "placeholder": "Benutzername",
+        "error": "Bitte gib einen Benutzernamen ein"
       },
-      "2": {
-        "header": "Wie kann ich mich trotz des virtuelllen Laufs als Teil des One-Accenture-Teams fühlen?",
-        "body": "Auf Teams gibt es eine Accenture Runners Gruppe, in der wir uns gegenseitig motivieren, Finisher-Selfies posten, etc. – Für die originellsten Finisher-Selfies gibt es Preise. Die Teams-Gruppe findet Ihr {0}."
+      "firstname": {
+        "placeholder": "Dein Vorname",
+        "error": "Bitte gib deinen Vornamen ein"
       },
-      "3": {
-        "header": "Wie kann ich im Rahmen des Laufs spenden?",
-        "body": "Bei der Anmeldung hast du die Möglichkeit, mit einer freiwilligen Spende das Projekt SA WINS (WINS = WASH in schools / WASH = Wasser, Sanitär, Hygiene) von Viva con Agua zu unterstützen. Über die Höhe der Spende entscheidest du selbst. "
+      "lastname": {
+        "placeholder": "Dein Nachname",
+        "error": "Bitte gib deinen Nachnamen ein"
       },
-      "4": {
-        "header": "Bekomme ich eine Spendenquittung für meine Spende?",
-        "body": "Ja, ab einem Betrag von 50 Euro bzw. Franken. Anfang nächsten Jahres wird dir deine digitale Spendenquittung per E-Mail zugeschickt. Bitte fülle dazu deine Adressdaten korrekt aus."
+      "password1": {
+        "placeholder": "Dein Passwort",
+        "error": "Bitte gib ein Passwort ein"
       },
-      "5": {
-        "header": "Kann ich das Projekt von Viva con Agua auch unterstützen, ohne selber zu laufen?",
-        "body": "Absolut! Als Sofa-SpenderIn kannst du es dir an dem Wochenende auf deiner Couch gemütlich machen und trotzdem gutes Karma sammeln. Klicke dazu auf den Sofa-Spendebutton rechts oben auf accenture.move4water.org und unterstütze somit das Projekt von Viva con Agua und motiviere zusätzlich alle LäuferInnen mit deiner Spende."
+      "password2": {
+        "placeholder": "Passwort bestätigen",
+        "error": {
+          "same": "Deine Passwörter stimmen nicht überein",
+          "enter": "Bitte bestätige dein Passwort"
+        }
+      },
+      "privacy_policy": {
+        "error": "Bitte bestätige, dass du die Datenschutzerklärung und die AGB zur Kenntnis genommen hast",
+        "text": "Ich habe die {0} und die {1} gelesen.",
+        "privacy_policy": "Datenschutzerklärung",
+        "tos": "AGB"
+      },
+      "newsletter": {
+        "title": "Flaschenpost",
+        "text": "Hier klicken, wenn du News und Projektupdates per E-Mail haben möchtest.<br/>Kommt ca 1. im Monat und kannst du in jedem Newsletter wieder abbestellen. :) "
+      },
+      "known_from": {
+        "placeholder": "Daher kenne ich euch"
       }
     },
-    "donation": {
-      "0": {
-        "header": "Wohin gehen die gesammelten Spenden?",
-        "body": "Die Spenden werden für das Projekt “SA WINS” in Südafrika eingesetzt. Weiterführende Informationen rund um das Projekt findest du auf der Homepage von Viva con Agua!"
+    "login": {
+      "title": "Anmelden",
+      "register": "Ich habe noch keinen Account und möchte mich {0}",
+      "email": {
+        "placeholder": "E-Mail Adresse",
+        "error": "Bitte gib deine E-Mail Adresse ein"
       },
-      "1": {
-        "header": "Was wird durch meine Spende ermöglicht?",
-        "body": "Unser Ziel ist es, mit dem Event 10.000 Euro zu generieren, um damit eine Schule in der Eastern Cape Region in Südafrika mit sauberem Trinkwasser und sanitären Einrichtungen zu versorgen."
+      "password": {
+        "placeholder": "Dein Passwort",
+        "error": "Bitte gib dein Passwort ein"
       },
-      "2": {
-        "header": "Wer profitiert von den Spendengeldern?",
-        "body": "Wenn wir es gemeinsam schaffen, 10.000 Euro einzunehmen, dann profitieren 400 junge Menschen, welchen wir mit dem Geld ein freudvolles und gesundes Lernen ermöglichen können."
+      "msg": {
+        "successful_created": {
+          "register": {
+            "title": "Super!",
+            "body": "Du bist nun erfolgreich registriert. Wir haben dir eine E-Mail mit einem Link zur Bestätugng deiner E-Mail Adresse zugeschickt. Bestätige diese um dich einloggen zu können.",
+            "type": "success"
+          },
+          "confirm": {
+            "title": "Super!",
+            "body": "Deine E-Mail Adresse wurde nun erfolgreich bestätigt. Du kannst dich nun anmelden.",
+            "type": "success"
+          }
+        }
       },
-      "3": {
-        "header": "Wo finde ich weiterführende Informationen über das Projekt in Südafrika?",
-        "body": "Du kannst dir weiterführende Informationen direkt {0} anschauen."
+      "reset_pw": "Passwort zurücksetzen",
+      "new_token": "Bestätigungsmail zusenden"
+    },
+    "reset_pw": {
+      "title": "Passwort neu setzen",
+      "email": {
+        "placeholder": "E-Mail Adresse",
+        "error": "Bitte gib eine gültige E-Mail Adresse ein"
+      },
+      "password1": {
+        "placeholder": "Dein neues Passwort",
+        "error": "Bitte gib ein neues Passwort ein"
+      },
+      "password2": {
+        "placeholder": "Passwort bestätigen",
+        "error": {
+          "same": "Deine Passwörter stimmen nicht überein",
+          "enter": "Bitte bestätige dein neues Passwort"
+        }
+      }
+    },
+    "new_token": {
+      "title": "Bestätigungsmail anfordern",
+      "email": {
+        "placeholder": "E-Mail Adresse",
+        "error": "Bitte gib eine gültige E-Mail Adresse ein"
       }
     }
   }

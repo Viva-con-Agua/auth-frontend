@@ -177,9 +177,9 @@ export default {
                         this.$router.push({name: "Login", query: {scope: 'move4water', msg: data.message, source: 'register'}})
                     } else {
                         if (this.$store.getters.callback !== 'null' || this.$store.getters.callback !== null) {
-                            window.location = data.payload.redirect_url + "?code=" + data.payload.code
-                        } else {
                             window.location = data.payload.redirect_url + "?code=" + data.payload.code + "&callback=" + this.$store.getters.callback
+                        } else {
+                            window.location = data.payload.redirect_url + "?code=" + data.payload.code
                         }
                     }
                 })

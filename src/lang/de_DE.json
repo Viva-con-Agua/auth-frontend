@@ -43,6 +43,12 @@
   "logout": {
     "redirect": "Einen Moment, du wirst ausgeloggt und dann weitergeleitet..."
   },
+  "confirm": {
+    "error": {
+      "title": "Uuups",
+      "body": "Wir konnten deine E-Mail Adresse nicht korrekt bestätigen, bitte sende dir erneut einen Code zu und wiederhole den Prozess"
+    }
+  },
   "sign": {
     "register": {
       "title": "Registrieren",

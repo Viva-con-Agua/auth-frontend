@@ -2,6 +2,7 @@
     <div id=confirm>
         {{ text }}
         <div v-if="error">
+            <div>{{ $t('sign.login.resend') }}</button>
             <button @click.prevent="submit" class="vca-button">{{ $t('sign.login.new_token') }}</button>
         </div>
         <vca-card v-if="mail">
@@ -52,15 +53,14 @@ export default {
                 if (data.payload.message === "no_token") {
                     /* TODO get scope from data.scope */
                     this.$router.push({name: "Login", query: {scope: 'move4water', msg: data.message, source: 'confirm'}})
-                } else if(data.message === "has_session") {
+                } else if(data.payload.message === "has_token") {
                     window.location = data.payload.redirect_url + "?code=" + data.payload.code
                 } else {
-                    this.open(data)
+                    this.error = true
+                    this.open({ title: this.$t('confirm.error.title'), body: this.$t('confirm.error.body'), type: "error" })
                 }
             })
             .catch( (error) => { 
-                console.log("ERRPR")
-                console.log(error)
                 this.error = true
                 this.open(error)
             })
