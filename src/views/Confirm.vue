@@ -47,6 +47,7 @@ export default {
         this.$store.commit("register/code", this.code)
         this.$store.dispatch({type: 'register/confirm'})
             .then(data => {
+                console.log("DATA")
                 console.log(data)
                 if (data.payload.message === "no_token") {
                     /* TODO get scope from data.scope */
@@ -58,6 +59,8 @@ export default {
                 }
             })
             .catch( (error) => { 
+                console.log("ERRPR")
+                console.log(error)
                 this.error = true
                 this.open(error)
             })
