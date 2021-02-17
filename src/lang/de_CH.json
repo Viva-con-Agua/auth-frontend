@@ -97,6 +97,7 @@
     "login": {
       "title": "Anmelden",
       "register": "Ich habe noch keinen Account und möchte mich {0}",
+      "resend": "Hier kannst du dir eine neue Bestätigungsmail zuschicken lassen",
       "email": {
         "placeholder": "E-Mail Adresse",
         "error": "Bitte gib deine E-Mail Adresse ein"

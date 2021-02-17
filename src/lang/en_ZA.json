@@ -97,6 +97,7 @@
     "login": {
       "title": "Login",
       "register": "I do not have an account yet and would like to {0}",
+      "resend": "Here you can resend a new confirmation mail",
       "email": {
         "placeholder": "Email address",
         "error": "Please enter your email address"
