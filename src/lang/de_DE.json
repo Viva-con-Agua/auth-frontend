@@ -43,6 +43,12 @@
   "logout": {
     "redirect": "Einen Moment, du wirst ausgeloggt und dann weitergeleitet..."
   },
+  "confirm": {
+    "error": {
+      "title": "Uuups",
+      "body": "Wir konnten deine E-Mail Adresse nicht korrekt bestätigen, bitte sende dir erneut einen Code zu und wiederhole den Prozess"
+    }
+  },
   "sign": {
     "register": {
       "title": "Registrieren",
@@ -91,6 +97,7 @@
     "login": {
       "title": "Anmelden",
       "register": "Ich habe noch keinen Account und möchte mich {0}",
+      "resend": "Hier kannst du dir eine neue Bestätigungsmail zuschicken lassen",
       "email": {
         "placeholder": "E-Mail Adresse",
         "error": "Bitte gib deine E-Mail Adresse ein"

@@ -43,6 +43,12 @@
   "logout": {
     "redirect": "One moment, we redirect you after the logout..."
   },
+  "confirm": {
+    "error": {
+      "title": "Error",
+      "body": "We could not confirm your email address correctly, please resend a code and repeat the process."
+    }
+  },
   "sign": {
     "register": {
       "title": "Register",
@@ -91,6 +97,7 @@
     "login": {
       "title": "Login",
       "register": "I do not have an account yet and would like to {0}",
+      "resend": "Here you can resend a new confirmation mail",
       "email": {
         "placeholder": "Email address",
         "error": "Please enter your email address"
