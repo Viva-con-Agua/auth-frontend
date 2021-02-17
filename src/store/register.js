@@ -52,6 +52,11 @@ const register = {
                         title: "Uuuups",
                         body: "Dein Konto konnte nicht bestätigt werden! Bitte versuche dich anzumelden, dort kannst du dir die E-Mail Bestätigung erneut zusenden.",
                         type: "error"
+                    },
+                    already_confirmed: {
+                        title: "Uuuups",
+                        body: "Dein Konto ist offensichtlich bereits bestätigt! Bitte versuche dich einfach anzumelden.",
+                        type: "error"
                     }
                 }
             },
@@ -108,6 +113,8 @@ const register = {
                 .catch(error => {
                     if (error.response.status === 400) {
                         reject(state.msg.confirm_token.errors.unknown)
+                    } else if (error.response.status === 404) {
+                        reject(state.msg.confirm_token.errors.already_confirmed)
                     }
                     reject(state.msg.defaults.errors.unknown)
                 })
