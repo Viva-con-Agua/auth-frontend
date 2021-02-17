@@ -47,6 +47,7 @@ export default {
         this.$store.commit("register/code", this.code)
         this.$store.dispatch({type: 'register/confirm'})
             .then(data => {
+                console.log(data)
                 if (data.payload.message === "no_token") {
                     /* TODO get scope from data.scope */
                     this.$router.push({name: "Login", query: {scope: 'move4water', msg: data.message, source: 'confirm'}})
