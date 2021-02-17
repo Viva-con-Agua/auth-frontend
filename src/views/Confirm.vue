@@ -1,9 +1,10 @@
 <template>
-    <div id=confirm>
+    <div id="confirm">
         {{ text }}
         <div v-if="error">
-            <div>{{ $t('sign.login.resend') }}</button>
+            <div>{{ $t('sign.login.resend') }}</div>
             <button @click.prevent="submit" class="vca-button">{{ $t('sign.login.new_token') }}</button>
+            <button @click.prevent="login" class="vca-button-small">{{ $t('sign.login.title') }}</button>
         </div>
         <vca-card v-if="mail">
             <NewToken/>
@@ -32,6 +33,9 @@ export default {
     methods: {
         submit() {
             this.mail = true
+        },
+        login() {
+            this.$router.push({name: "Login", query: {scope: 'move4water'}})
         },
         open(msg) {
             if (msg !== undefined) {

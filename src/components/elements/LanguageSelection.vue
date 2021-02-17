@@ -1,6 +1,6 @@
 <template>
   <div class="language-selection">
-    {{ $t("language.title") }}:
+    {{ $t("language.title") }} 
     <div class="flag-cont" v-for="(lang, index) in languages" :key="index" @click="changeLanguage(lang)">
       <country-flag class="flag-el" v-if="language == lang" :country="lang" size="normal"/>
       <country-flag v-else :country="lang" size="small"/>
@@ -12,7 +12,7 @@ export default {
   name: 'LanguageSelection',
   data() {
     return {
-      languages: ['de', 'ch', 'za'],
+      languages: ['de', 'ch', 'gb'],
       language: localStorage.language
     }
   },
