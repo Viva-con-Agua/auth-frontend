@@ -1,0 +1,152 @@
+{
+  "locale": {
+    "dateFormat": "DD.MM.YYYY",
+    "monthDateFormat": "MM.YYYY",
+    "de-DE": {
+      "locale": "de-DE",
+      "name": "Standard German",
+      "label": "DE"
+    },
+    "de-CH": {
+      "locale": "de-CH",
+      "name": "Swiss German",
+      "label": "CH"
+    },
+    "en-ZA": {
+      "locale": "en-ZA",
+      "name": "South African English",
+      "label": "EN ZA"
+    }
+  },
+  "language": {
+    "title": "Language"
+  },
+  "currency": {
+    "title": "Currency"
+  },
+  "footer": {
+    "legal": {
+      "dataSecurity": "Privacy Policy",
+      "imprint": "Imprint",
+      "language": "Language",
+      "currency": "Currency"
+    }
+  },
+  "header": {
+    "sso": "Viva con Agua Portal",
+    "moreInfo": {
+      "button": "more informations",
+      "title": "Viva con Agua Portal",
+      "description": "The <div class='text-highlight'>Viva con Agua Portal</div> is the central point of contact for all web applications provided by Viva con Agua.<br/>To make it as easy as possible for you as a user and at the same time to offer the highest possible security, we use a central login, the so-called Single Sign-On (SSO). Single sign-on is an authentication process that allows users to securely log in to multiple applications and websites, but only have to enter their credentials once. You may already be familiar with this process from platforms such as Google or Facebook.<br/>This means that in the future you can easily log in to our services with your user data without having to create a new account for each site. Your data will only be transmitted in encrypted form and will be stored on our own servers - which, by the way, are also powered by 100% hydropower.<br/><strong>After your login or registration, you will be automatically redirected back to the application you came from.</strong>"
+    }
+  },
+  "logout": {
+    "redirect": "One moment, we redirect you after the logout..."
+  },
+  "confirm": {
+    "error": {
+      "title": "Error",
+      "body": "We could not confirm your email address correctly, please resend a code and repeat the process."
+    }
+  },
+  "sign": {
+    "register": {
+      "title": "Register",
+      "login": "I already have an account and want to {0}",
+      "email": {
+        "placeholder": "Email address",
+        "error": "Please enter a valid email address"
+      },
+      "displayname": {
+        "placeholder": "Username",
+        "error": "Please enter your username"
+      },
+      "firstname": {
+        "placeholder": "Your first name",
+        "error": "Please enter your first name"
+      },
+      "lastname": {
+        "placeholder": "Your last name",
+        "error": "Please enter your last name"
+      },
+      "password1": {
+        "placeholder": "Your password",
+        "error": "Please enter a password"
+      },
+      "password2": {
+        "placeholder": "Password confirmation",
+        "error": {
+          "same": "Your entered passwords do not match",
+          "enter": "Please confirm your password"
+        }
+      },
+      "privacy_policy": {
+        "error": "Please confirm that you have read the privacy policy and the terms and service",
+        "text": "I have read the {0} and the {1}.",
+        "privacy_policy": "Privacy policy",
+        "tos": "Terms of service"
+      },
+      "newsletter": {
+        "title": "Newsletter",
+        "text": "Click here if you want to have news and project updates by email.<br/>Comes about 1. a month and you can unsubscribe in each newsletter again. :) "
+      },
+      "known_from": {
+        "placeholder": "I know you from there"
+      }
+    },
+    "login": {
+      "title": "Login",
+      "register": "I do not have an account yet and would like to {0}",
+      "resend": "Here you can resend a new confirmation mail",
+      "email": {
+        "placeholder": "Email address",
+        "error": "Please enter your email address"
+      },
+      "password": {
+        "placeholder": "Your password",
+        "error": "Please enter your password"
+      },
+      "msg": {
+        "successful_created": {
+          "register": {
+            "title": "Yeah!",
+            "body": "Your registration has been successful. We have sent you an email to confirm your email address. You have to confirm your email address before you can login.",
+            "type": "success"
+          },
+          "confirm": {
+            "title": "Yeah!",
+            "body": "Your email address confirmation was successful. You can now login.",
+            "type": "success"
+          }
+        }
+      },
+      "reset_pw": "Reset password",
+      "new_token": "Resend confirmation link"
+    },
+    "reset_pw": {
+      "title": "Reset password",
+      "email": {
+        "placeholder": "Email address",
+        "error": "Please enter a valid email address"
+      },
+      "password1": {
+        "placeholder": "Your new password",
+        "error": "Please enter a new password"
+      },
+      "password2": {
+        "placeholder": "Password confirmation",
+        "error": {
+          "same": "Your entered passwords do not match",
+          "enter": "Please confirm your password"
+        }
+      }
+    },
+    "new_token": {
+      "title": "Resend confirmation link",
+      "email": {
+        "placeholder": "Email address",
+        "error": "Please enter a valid email address"
+      }
+    }
+  }
+}

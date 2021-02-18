@@ -11,6 +11,7 @@ import CountryFlag from 'vue-country-flag'
 import ch from '@/lang/de_CH.json';
 import de from '@/lang/de_DE.json';
 import za from '@/lang/en_ZA.json';
+import gb from '@/lang/en_GB.json';
 
 Vue.use(Vuelidate)
 Vue.use(VcaUi)
@@ -28,9 +29,11 @@ const i18n = new VueI18n({
         'de-DE': de,
         'de-CH': ch,
         'en-ZA': za,
+        'en-GB': gb,
         'de': de,
         'ch': ch,
-        'za': za
+        'za': za,
+        'gb': gb
     }
 });
 
