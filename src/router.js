@@ -23,7 +23,7 @@ function loadView(view) {
 
 const routes = [
     {
-        path: '/', redirect: { name: 'Register', query: {scope: 'factory'}}
+        path: '/', redirect: { name: 'Register', query: {scope: 'move4water'}}
         
     },
     {
