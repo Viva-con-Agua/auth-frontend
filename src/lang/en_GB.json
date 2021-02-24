@@ -18,6 +18,55 @@
       "label": "EN ZA"
     }
   },
+  "messages": {
+    "title": {
+      "success": "Super!",
+      "error": "Uuuups",
+      "warn": "Hmmm",
+      "welcome": "Welcome!",
+      "bye": "Bye!"
+    },
+    "defaults": {
+      "error": {
+        "unknown": "An unknown error has occurred. Please write an email to support@move4water.org"
+      }
+    },
+    "reset_password": {
+      "success": {
+        "updated": "Your password has been reset successfully."
+      },
+      "error": {
+        "email": "Your email address could not be found.",
+        "not_found": "The token could not be found.",
+        "already_confirmed": "The account is already confirmed or does not exist."
+      }
+    },
+    "sign_up": {
+      "success": {
+        "new_token": "We have sent you an email with a new confirmation code!"
+      },
+      "error": {
+        "conflict": "You probably already have an account, just log in!",
+        "password": "Your password must consist of at least eight characters!",
+        "username": "Your username must consist of at least three characters!"
+      }
+    },
+    "sign_in": {
+      "success": {
+        "new_pw": "We have sent you an email with a link where you can reset your password."
+      },
+      "error": {
+        "email": "Your email address and password do not match",
+        "password": "The token could not be found."
+      }
+    },
+    "confirm_token": {
+      "error": {
+        "unknown": "Your account could not be confirmed! Please try to log in, there you can resend the email confirmation.",
+        "already_confirmed": "Your account is obviously already confirmed! Please just try to log in."
+      }
+    }
+  },
   "language": {
     "title": "Language"
   },
@@ -35,9 +84,9 @@
   "header": {
     "sso": "Viva con Agua Portal",
     "moreInfo": {
-      "button": "more informations",
+      "button": "more information",
       "title": "Viva con Agua Portal",
-      "description": "The <div class='text-highlight'>Viva con Agua Portal</div> is the central point of contact for all web applications provided by Viva con Agua.<br/>To make it as easy as possible for you as a user and at the same time to offer the highest possible security, we use a central login, the so-called Single Sign-On (SSO). Single sign-on is an authentication process that allows users to securely log in to multiple applications and websites, but only have to enter their credentials once. You may already be familiar with this process from platforms such as Google or Facebook.<br/>This means that in the future you can easily log in to our services with your user data without having to create a new account for each site. Your data will only be transmitted in encrypted form and will be stored on our own servers - which, by the way, are also powered by 100% hydropower.<br/><strong>After your login or registration, you will be automatically redirected back to the application you came from.</strong>"
+      "description": "With the <div class='text-highlight'>Viva con Agua portal</div>, we provide a central point for registration through which you can use all web applications (e.g. our Move4Water web app).<br/><br/>In order to make it as easy as possible for you as a user while at the same time offering a high level of security, we use a central login on the Viva con Agua portal, the so-called Single Sign-On (SSO). SSO is an authentication method that allows users to securely log in to multiple applications and websites, but only need to enter their credentials once. You may already know this procedure from big platforms like Google or Facebook.<br/><br/>In this case, the first step is to register on the Viva con Agua portal.<br/>If you then want to use a Viva con Agua web app, you will be redirected to the portal as a central point, enter your login data and will then be automatically redirected back to the Move4Water web app, where you are now also registered without having to register there again. The Viva con Agua portal forwards your registration data to the web applications and takes care of these steps. The same process then applies to all other new applications for which you would like to register.<br/>However, a profile is only created in the Viva con Agua portal for the web applications that you would like to use. <br/>In summary, this means that in the future you can easily log in to our services with your user data without having to create a new account for each page.<br/><br/><strong>Your data will only be transmitted in encrypted form, will not be passed on to third parties under any circumstances and will be stored securely on our own servers - which, by the way, are also powered 100% by hydropower.</strong>."
     }
   },
   "logout": {
