@@ -91,7 +91,7 @@ export default {
             this.$store.dispatch({type: "login/resetPassword", data: this.reset})
                 .then((response) => {
                     this.open(response)
-                    //this.$router.push({name: 'Sign'})
+                    this.$router.push({name: 'Login', query:{scope: 'move4water'}})
                 })
                 .catch(error => {
                      this.open(error)
