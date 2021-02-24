@@ -23,25 +23,25 @@ const login = {
             reset_password: {
                 success: {
                     updated: {
-                        title: "Super! ",
-                        body: "Dein Passwort wurde erfolgreich neu gesetzt.",
+                        title: "messages.title.success",
+                        body: "messages.reset_password.success.updated",
                         type: "success"
                     }
                 },
                 errors: {
                     email: {
-                        title: "Uuuups",
-                        body: "Deine E-Mail Adresse konnte nicht gefunden werden.",
+                        title: "messages.title.error",
+                        body: "messages.reset_password.error.email",
                         type: "error"
                     },
                     not_found: {
-                        title: "Uuuups",
-                        body: "Das Token konnte nicht gefunden werden.",
+                        title: "messages.title.error",
+                        body: "messages.reset_password.error.not_found",
                         type: "error"
                     },
                     already_confirmed: {
-                        title: "Uuuups",
-                        body: "Das Konto ist bereits bestätigt oder existiert nicht.",
+                        title: "messages.title.error",
+                        body: "messages.reset_password.error.already_confirmed",
                         type: "error"
                     }
                 }
@@ -49,75 +49,38 @@ const login = {
             sign_up: {
                 success: {
                     new_token: {
-                        title: "Super! ",
-                        body: "Wir haben dir eine neue E-Mail zugeschickt!",
+                        title: "messages.title.success",
+                        body: "messages.sign_up.success.new_token",
                         type: "success"
-                    },
-                    signin: {
-                        title: "Moin! ",
-                        body: "Du bist nun erfolgreich reingeloggt. Wir haben dir eine E-Mail mit einem Link zur Bestätugng deiner E-Mail Adresse zugeschickt.",
-                        type: "success"
-                    }
-                },
-                errors: {
-                    confict: {
-                        title: "Ahh ",
-                        body: "Du hast wohl schon einen Account, log dich einfach ein!",
-                        type: "error"
                     }
                 }
             },
             sign_in: {
                 success: {
                     new_pw: {
-                        title: "Soo! ",
-                        body: "Wir haben dir eine Link via Email gesendet, mit dem du dein Passwort neu setzen kannst.",
-                        type: "success"
-                    },
-                    signin: {
-                        title: "Moin! ",
-                        body: "Du bist nun erfolgreich reingeloggt.",
+                        title: "messages.title.success",
+                        body: "messages.sign_in.success.new_pw",
                         type: "success"
                     }
                 },
                 errors: {
                     email: {
-                        title: "Uuuups",
-                        body: "Deine E-Mail Adresse und dein Passwort passen nicht zusammen",
+                        title: "messages.title.error",
+                        body: "messages.sign_in.error.email",
                         type: "error"
                     },
                     password: {
-                        title: "Uuuups",
-                        body: "Deine E-Mail Adresse und dein Passwort passen nicht zusammen",
+                        title: "messages.title.error",
+                        body: "messages.sign_in.error.password",
                         type: "error"
-                    },
-                    confirmed: {
-                        title: "Hmmm",
-                        body: "Deine E-Mail Adresse wurde noch nicht bestätigt. Bitte bestätige deine E-Mail Adresse bevor du dich erneut einloggst. Solltest du Probleme bei der Bestätigung haben schreibe bitte eine E-Mail an support@move4water.org",
-                        type: "warn"
-                    }
-                }
-            },
-            sign_out: {
-                success: {
-                    signout: {
-                        title: "Tschüss! ",
-                        body: "Du bist nun erfolgreich rausgeloggt.",
-                        type: "success"
-
                     }
                 }
             },
             defaults: {
                 errors: {
-                    unauth: {
-                        title: "Hmmm",
-                        body: "Du bist gerade nicht richtig eingeloggt",
-                        type: "warn"
-                    },
                     unknown: {
-                        title: "Uuuups",
-                        body: "Es ist ein unbekannter Fehler aufgetreten. Schreib bitte eine E-Mail an support@move4water.org",
+                        title: "messages.title.error",
+                        body: "messages.defaults.error.unknown",
                         type: "error"
                     }
                 }

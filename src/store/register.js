@@ -21,41 +21,34 @@ const register = {
         },
         msg: {
             sign_up: {
-                signin: {
-                    title: "Moin! ",
-                    body: "Du bist nun erfolgreich reingeloggt. Wir haben dir eine E-Mail mit einem Link zur Bestätugng deiner E-Mail Adresse zugeschickt.",
-                    type: "success"
-                },
                 errors: {
-                    confict: {
-                        title: "Ahh ",
-                        body: "Du hast wohl schon einen Account, log dich einfach ein!",
+                    conflict: {
+                        title: "messages.title.warn",
+                        body: "messages.sign_up.error.conflict",
+                        type: "warn"
+                    },
+                    password: {
+                        title: "messages.title.error",
+                        body: "messages.sign_up.error.password",
                         type: "error"
                     },
-                    pw: {
-                        title: "Uuuups ",
-                        body: "Dein Passwort muss aus mindestens acht Zeichen bestehen",
+                    username: {
+                        title: "messages.title.error",
+                        body: "messages.sign_up.error.username",
                         type: "error"
                     }
                 }
             },
             confirm_token: {
-                success: {
-                    confirmed: {
-                        title: "Super! ",
-                        body: "Deine E-Mail Adresse wurde erfolgreich bestätigt! Du kannst dich nun mit deiner E-Mail Adresse und deinem Passwort einloggen.",
-                        type: "success"
-                    }
-                },
                 errors: {                    
                     unknown: {
-                        title: "Uuuups",
-                        body: "Dein Konto konnte nicht bestätigt werden! Bitte versuche dich anzumelden, dort kannst du dir die E-Mail Bestätigung erneut zusenden.",
+                        title: "messages.title.error",
+                        body: "messages.confirm_token.error.unknown",
                         type: "error"
                     },
                     already_confirmed: {
-                        title: "Uuuups",
-                        body: "Dein Konto ist offensichtlich bereits bestätigt! Bitte versuche dich einfach anzumelden.",
+                        title: "messages.title.error",
+                        body: "messages.confirm_token.error.already_confirmed",
                         type: "error"
                     }
                 }
@@ -63,8 +56,8 @@ const register = {
             defaults: {
                 errors: {
                     unknown: {
-                        title: "Uuuups",
-                        body: "Es ist ein unbekannter Fehler aufgetreten. Schreib bitte eine E-Mail an support@move4water.org",
+                        title: "messages.title.error",
+                        body: "messages.defaults.error.unknown",
                         type: "error"
                     }
                 }
@@ -96,9 +89,14 @@ const register = {
                 })
                 .catch(error => {
                     if (error.response.status === 409) {
-                        reject(state.msg.sign_up.errors.confict)
+                        reject(state.msg.sign_up.errors.conflict)
                     } else if (error.response.status === 400) {
-                        reject(state.msg.sign_up.errors.pw)
+                        console.log(error.response.data[0].Key)
+                        if (error.response.data[0].Key === "'Register.DisplayName'") {
+                            reject(state.msg.sign_up.errors.username)
+                        } else {
+                            reject(state.msg.sign_up.errors.password)
+                        }
                     }
                     reject(state.msg.defaults.errors.unknown)
                 })

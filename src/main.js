@@ -37,6 +37,22 @@ const i18n = new VueI18n({
     }
 });
 
+Vue.mixin({
+  methods: {
+    notification: function (msg) {
+        console.log(msg)
+        if (msg !== undefined) {
+            this.$notify({
+                title: this.$t(msg.title),
+                text: this.$t(msg.body),
+                type: msg.type,
+                duration: 6000
+            });
+        }
+    }
+  },
+})
+
 new Vue({
     i18n,
     router,

@@ -1,77 +1,78 @@
 <template>
     <div class="text-left">
-        <vca-input
-            ref="email"
-            :errorMsg="$t('sign.register.email.error')"
-            @input="lower"
-            :placeholder="$t('sign.register.email.placeholder')"
-            v-model.trim="user.email" 
-            :rules="$v.user.email">
-        </vca-input>
-        <vca-input
-            ref="display_name"
-            :errorMsg="$t('sign.register.displayname.error')"
-            :placeholder="$t('sign.register.displayname.placeholder')"
-            v-model.trim="user.display_name" 
-            :rules="$v.user.display_name">
-        </vca-input>
-        <vca-field-row>
-            <vca-input 
-                ref="first_name"
-                first
-                :errorMsg="$t('sign.register.firstname.error')"
-                :placeholder="$t('sign.register.firstname.placeholder')"
-                v-model.trim="user.first_name" 
-                :rules="$v.user.first_name">
+        <form>
+            <vca-input
+                ref="email"
+                :errorMsg="$t('sign.register.email.error')"
+                @input="lower"
+                :placeholder="$t('sign.register.email.placeholder')"
+                v-model.trim="user.email" 
+                :rules="$v.user.email">
             </vca-input>
             <vca-input
-                ref="last_name"
-                last
-                :errorMsg="$t('sign.register.lastname.error')"
-                :placeholder="$t('sign.register.lastname.placeholder')"
-                v-model.trim="user.last_name" 
-                :rules="$v.user.last_name">
+                ref="display_name"
+                :errorMsg="$t('sign.register.displayname.error')"
+                :placeholder="$t('sign.register.displayname.placeholder')"
+                v-model.trim="user.display_name" 
+                :rules="$v.user.display_name">
             </vca-input>
-        </vca-field-row>
-        <vca-input
-            ref="password"
-            type="password"
-            :errorMsg="$t('sign.register.password1.error')"
-            :placeholder="$t('sign.register.password1.placeholder')"
-            v-model.trim="user.password" 
-            :rules="$v.user.password">
-        </vca-input>
-        <vca-input
-            ref="password_check"
-            type="password"
-            :errorMsg="pwError"
-            :placeholder="$t('sign.register.password2.placeholder')"
-            v-model.trim="password_check" 
-            :rules="$v.password_check">
-        </vca-input>
+            <vca-field-row>
+                <vca-input 
+                    ref="first_name"
+                    first
+                    :errorMsg="$t('sign.register.firstname.error')"
+                    :placeholder="$t('sign.register.firstname.placeholder')"
+                    v-model.trim="user.first_name" 
+                    :rules="$v.user.first_name">
+                </vca-input>
+                <vca-input
+                    ref="last_name"
+                    last
+                    :errorMsg="$t('sign.register.lastname.error')"
+                    :placeholder="$t('sign.register.lastname.placeholder')"
+                    v-model.trim="user.last_name" 
+                    :rules="$v.user.last_name">
+                </vca-input>
+            </vca-field-row>
+            <vca-input
+                ref="password"
+                type="password"
+                :errorMsg="$t('sign.register.password1.error')"
+                :placeholder="$t('sign.register.password1.placeholder')"
+                v-model.trim="user.password" 
+                :rules="$v.user.password">
+            </vca-input>
+            <vca-input
+                ref="password_check"
+                type="password"
+                :errorMsg="pwError"
+                :placeholder="$t('sign.register.password2.placeholder')"
+                v-model.trim="password_check" 
+                :rules="$v.password_check">
+            </vca-input>
 
-        <vca-checkbox 
-            ref="privacy_policy"
-            v-model="user.privacy_policy"
-            :rules="$v.user.privacy_policy"
-            :errorMsg="$t('sign.register.privacy_policy.error')" > 
-                <i18n path="sign.register.privacy_policy.text">
-                    <a href="https://www.vivaconagua.org/datenschutzerklaerung" target="_blank">{{ $t('sign.register.privacy_policy.privacy_policy') }}</a>
-                    <a href="https://www.vivaconagua.org/agb" target="_blank">{{ $t('sign.register.privacy_policy.tos') }}</a>
-                </i18n>
-        </vca-checkbox>
+            <vca-checkbox 
+                ref="privacy_policy"
+                v-model="user.privacy_policy"
+                :rules="$v.user.privacy_policy"
+                :errorMsg="$t('sign.register.privacy_policy.error')" > 
+                    <i18n path="sign.register.privacy_policy.text">
+                        <a href="https://www.vivaconagua.org/datenschutzerklaerung" target="_blank">{{ $t('sign.register.privacy_policy.privacy_policy') }}</a>
+                        <a href="https://www.vivaconagua.org/agb" target="_blank">{{ $t('sign.register.privacy_policy.tos') }}</a>
+                    </i18n>
+            </vca-checkbox>
 
-        <vca-checkbox
-            v-model="user.offset.newsletter">
-                <div class="highlight">{{ $t('sign.register.newsletter.title') }}</div> <span v-html="$t('sign.register.newsletter.text')"></span>
-        </vca-checkbox>
-        <vca-known-from @input="changeKnown" :placeholder="$t('sign.register.known_from.placeholder')" ref="known_from" />
-        <button
-            class="vca-button button"
-            @click.prevent="validate">
-            {{ $t('sign.register.title') }}
-        </button>
-
+            <vca-checkbox
+                v-model="user.offset.newsletter">
+                    <div class="highlight">{{ $t('sign.register.newsletter.title') }}</div> <span v-html="$t('sign.register.newsletter.text')"></span>
+            </vca-checkbox>
+            <vca-known-from @input="changeKnown" :placeholder="$t('sign.register.known_from.placeholder')" ref="known_from" />
+            <button
+                class="vca-button button"
+                @click.prevent="validate">
+                {{ $t('sign.register.title') }}
+            </button>
+        </form>
         <div class="vca-center text-center">
             <h2>
                 <i18n path="sign.register.login">
@@ -184,7 +185,7 @@ export default {
                     }
                 })
                 .catch ((error) => {
-                    this.open(error)
+                    this.notification(error)
                 })
         },
         lower() {
@@ -199,16 +200,6 @@ export default {
         },
         login() {
             this.$router.push({name: 'Login', query: { scope: this.$route.query.scope, language: this.$route.query.language }})
-        },
-        open(msg) {
-            if (msg !== undefined) {
-                this.$notify({
-                    title: msg.title,
-                    text: msg.body,
-                    type: msg.type,
-                    duration: 6000
-                });
-            }
         }
     }
 }

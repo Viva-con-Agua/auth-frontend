@@ -1,6 +1,7 @@
 <template>
     <div class="text-left">
         <vca-field>
+            <form>
                 <vca-input
                     ref="password"
                     type="password"
@@ -17,11 +18,12 @@
                     v-model.trim="password_check" 
                     :rules="$v.password_check">
                 </vca-input>
-            <button
-                class="vca-button"
-                @click.prevent="validate">
-                {{ $t('sign.reset_pw.title') }}
-            </button>
+                <button
+                    class="vca-button"
+                    @click.prevent="validate">
+                    {{ $t('sign.reset_pw.title') }}
+                </button>
+            </form>
         </vca-field>
     </div>
 </template>
@@ -90,25 +92,15 @@ export default {
             //this.$store.commit('loadingFlow')
             this.$store.dispatch({type: "login/resetPassword", data: this.reset})
                 .then((response) => {
-                    this.open(response)
+                    this.notification(response)
                     this.$router.push({name: 'Login', query:{scope: 'move4water'}})
                 })
                 .catch(error => {
-                     this.open(error)
+                     this.notification(error)
                 })/*
                 .finally(() => {
                     this.$store.commit('loadingFlow')
                 })*/
-        },
-        open(msg) {
-            if (msg !== undefined) {
-                this.$notify({
-                    title: msg.title,
-                    text: msg.body,
-                    type: msg.type,
-                    duration: 6000
-                });
-            }
         }
     }
 }
