@@ -78,7 +78,8 @@
       "dataSecurity": "Datenschutz",
       "imprint": "Impressum",
       "language": "Sprache",
-      "currency": "Währung"
+      "currency": "Währung",
+      "contact": "Kontakt"
     }
   },
   "header": {
@@ -140,7 +141,14 @@
         "text": "Hier klicken, wenn du News und Projektupdates per E-Mail haben möchtest.<br/>Kommt ca 1. im Monat und kannst du in jedem Newsletter wieder abbestellen. :) "
       },
       "known_from": {
-        "placeholder": "Daher kenne ich euch"
+        "placeholder": "Daher kenne ich euch",
+        "label": "So bin ich auf euch aufmerksam geworden",
+        "select": "Bitte wählen",
+        "family_friends": "Familie & Freunde",
+        "festivals_cupdonation": "Festivals & Becherspende",
+        "water": "Wasser",
+        "instagram": "Instagram",
+        "facebook": "Facebook"
       }
     },
     "login": {
