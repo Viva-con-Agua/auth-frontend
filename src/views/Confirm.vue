@@ -36,16 +36,6 @@ export default {
         },
         login() {
             this.$router.push({name: "Login", query: {scope: 'move4water'}})
-        },
-        open(msg) {
-            if (msg !== undefined) {
-                this.$notify({
-                    title: msg.title,
-                    text: msg.body,
-                    type: msg.type,
-                    duration: 6000
-                });
-            }
         }
     },
     mounted() {
@@ -61,12 +51,12 @@ export default {
                     window.location = data.payload.redirect_url + "?code=" + data.payload.code
                 } else {
                     this.error = true
-                    this.open({ title: this.$t('confirm.error.title'), body: this.$t('confirm.error.body'), type: "error" })
+                    this.notification({ title: this.$t('confirm.error.title'), body: this.$t('confirm.error.body'), type: "error" })
                 }
             })
             .catch( (error) => { 
                 this.error = true
-                this.open(error)
+                this.notification(error)
             })
     }
 }

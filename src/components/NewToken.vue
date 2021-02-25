@@ -1,19 +1,20 @@
 <template>
     <div class="text-left">
-        <vca-input
-            ref="email"
-            :errorMsg="$t('sign.new_token.email.error')"
-            @input="lower"
-            :placeholder="$t('sign.new_token.email.placeholder')"
-            v-model.trim="reset.email" 
-            :rules="$v.reset.email">
-        </vca-input>
-        <button
-            class="vca-button"
-            @click.prevent="validate">
-            {{ $t('sign.new_token.title') }}
-        </button>
-
+        <form>
+            <vca-input
+                ref="email"
+                :errorMsg="$t('sign.new_token.email.error')"
+                @input="lower"
+                :placeholder="$t('sign.new_token.email.placeholder')"
+                v-model.trim="reset.email" 
+                :rules="$v.reset.email">
+            </vca-input>
+            <button
+                class="vca-button"
+                @click.prevent="validate">
+                {{ $t('sign.new_token.title') }}
+            </button>
+        </form>
     </div>
 </template>
 <script>
@@ -50,10 +51,10 @@ export default {
         submit() {
             this.$store.dispatch({type: 'login/resetConfirmationToken'})
                 .then((response) => {
-                    this.open(response)
+                    this.notification(response)
                 })
                 .catch ((error) => {
-                    this.open(error)
+                    this.notification(error)
                 })
                 .finally(() => {
                     //this.$store.commit('loadingFlow')
@@ -61,16 +62,6 @@ export default {
         },
         lower() {
             this.reset.email = this.reset.email.toLowerCase()
-        },
-        open(msg) {
-            if (msg !== undefined) {
-                this.$notify({
-                    title: msg.title,
-                    text: msg.body,
-                    type: msg.type,
-                    duration: 6000
-                });
-            }
         }
     }
 }

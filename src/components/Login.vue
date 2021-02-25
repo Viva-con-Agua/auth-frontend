@@ -1,29 +1,30 @@
 <template>
     <div class="text-left">
-        <vca-input
-            ref="email"
-            :errorMsg="$t('sign.login.email.error')"
-            @input="lower"
-            :placeholder="$t('sign.login.email.placeholder')"
-            v-model.trim="credentials.email" 
-            :rules="$v.credentials.email">
-        </vca-input>
-        <vca-input 
-            ref="password"
-            type="password"
-            :errorMsg="$t('sign.login.password.error')"
-            :placeholder="$t('sign.login.password.placeholder')"
-            v-model.trim="credentials.password" 
-            :rules="$v.credentials.password">
-        </vca-input>
-        <vca-field-row>
-            <button 
-                class="vca-button button"
-                @click.prevent="validate">
-                {{ $t('sign.login.title') }}
-            </button>
-        </vca-field-row>
-
+        <form>
+            <vca-input
+                ref="email"
+                :errorMsg="$t('sign.login.email.error')"
+                @input="lower"
+                :placeholder="$t('sign.login.email.placeholder')"
+                v-model.trim="credentials.email" 
+                :rules="$v.credentials.email">
+            </vca-input>
+            <vca-input 
+                ref="password"
+                type="password"
+                :errorMsg="$t('sign.login.password.error')"
+                :placeholder="$t('sign.login.password.placeholder')"
+                v-model.trim="credentials.password" 
+                :rules="$v.credentials.password">
+            </vca-input>
+            <vca-field-row>
+                <button 
+                    class="vca-button button"
+                    @click.prevent="validate">
+                    {{ $t('sign.login.title') }}
+                </button>
+            </vca-field-row>
+        </form>
         <div class="vca-center text-center">
             <h2>
                 <i18n path="sign.login.register">
@@ -64,7 +65,7 @@ export default {
         this.$i18n.locale = this.$route.query.language
 
         if (this.$route.query.msg && this.$route.query.source) {
-            this.open({
+            this.notification({
                 title: this.$t('sign.login.msg.' + this.$route.query.msg + '.' + this.$route.query.source + '.title'),
                 body: this.$t('sign.login.msg.' + this.$route.query.msg + '.' + this.$route.query.source + '.body'),
                 type: this.$t('sign.login.msg.' + this.$route.query.msg + '.' + this.$route.query.source + '.type')
@@ -90,21 +91,11 @@ export default {
                     window.location = data.redirect_url + "?code=" + data.code + "&callback=" + this.$store.getters.callback
                 })
                 .catch ((error) => {
-                    this.open(error)
+                    this.notification(error)
                 })
         },
         register() {
             this.$router.push({name: 'Register', query: { scope: this.$route.query.scope, language: this.$route.query.language }})
-        },
-        open(msg) {
-            if (msg !== undefined) {
-                this.$notify({
-                    title: msg.title,
-                    text: msg.body,
-                    type: msg.type,
-                    duration: 6000
-                });
-            }
         }
     }
 }

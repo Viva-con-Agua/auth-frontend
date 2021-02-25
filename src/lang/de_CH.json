@@ -18,6 +18,55 @@
       "label": "za"
     }
   },
+  "messages": {
+    "title": {
+      "success": "Super!",
+      "error": "Uuuups",
+      "warn": "Hmmm",
+      "welcome": "Hallo!",
+      "bye": "Tschüss!"
+    },
+    "defaults": {
+      "error": {
+        "unknown": "Es ist ein unbekannter Fehler aufgetreten. Schreib bitte eine E-Mail an support@move4water.org"
+      }
+    },
+    "reset_password": {
+      "success": {
+        "updated": "Dein Passwort wurde erfolgreich neu gesetzt."
+      },
+      "error": {
+        "email": "Deine E-Mail Adresse konnte nicht gefunden werden.",
+        "not_found": "Das Token konnte nicht gefunden werden.",
+        "already_confirmed": "Das Konto ist bereits bestätigt oder existiert nicht."
+      }
+    },
+    "sign_up": {
+      "success": {
+        "new_token": "Wir haben dir eine E-Mail mit einem neuen Bestätigungs-Code zugeschickt!"
+      },
+      "error": {
+        "conflict": "Du hast wohl schon einen Account, log dich einfach ein!",
+        "password": "Dein Passwort muss aus mindestens acht Zeichen bestehen!",
+        "username": "Dein Benutzername muss aus mindestens drei Zeichen bestehen!"
+      }
+    },
+    "sign_in": {
+      "success": {
+        "new_pw": "Wir haben dir E-Mail mit einem Link gesendet, über den du dein Passwort neu setzen kannst."
+      },
+      "error": {
+        "email": "Deine E-Mail Adresse und dein Passwort passen nicht zusammen",
+        "password": "Deine E-Mail Adresse und dein Passwort passen nicht zusammen"
+      }
+    },
+    "confirm_token": {
+      "error": {
+        "unknown": "Dein Konto konnte nicht bestätigt werden! Bitte versuche dich anzumelden, dort kannst du dir die E-Mail Bestätigung erneut zusenden.",
+        "already_confirmed": "Dein Konto ist offensichtlich bereits bestätigt! Bitte versuche dich einfach anzumelden."
+      }
+    }
+  },
   "language": {
     "title": "Sprache"
   },
@@ -37,7 +86,7 @@
     "moreInfo": {
       "button": "mehr Infos",
       "title": "Viva con Agua Portal",
-      "description": "Das <div class='text-highlight'>Viva con Agua Portal</div> ist die zentrale Anlaufstelle für alle Web-Anwendungen, die Viva con Agua zu Verfügung stellt.<br/>Um es dir als Nutzer*in einerseits möglichst einfach zu machen und gleichzeitig möglichst hohe Sicherheit zu bieten, nutzen wir hierfür ein zentrales Login, das sogenannte Single Sign-On (SSO). Single Sign-On ist ein Authentifizierungsverfahren, bei dem sich Benutzer*innen auf sichere Weise an mehreren Anwendungen und Websites anmelden können, dabei jedoch nur ein einziges Mal ihre Zugangsdaten eingeben müssen. Dieses Verfahren kennst du vielleicht schon von Plattformen wie Google oder Facebook.<br/>Das bedeutet, dass du dich künftig mit deinen Benutzerdaten problemlos bei unseren Services anmelden kannst, ohne dir für jede Seite ein neues Konto anlegen zu müssen. Deine Daten werden dabei nur verschlüsselt übertragen und liegen dabei auf unseren eigenen Servern - die nebenbei auch zu 100% mit Wasserkraft betrieben werden.<br/><strong>Nach dem Login oder der Registrierung wirst du automatisch wieder zu der Anwendungen weitergeleitet, von der du gekommen bist.</strong>"
+      "description": "Mit dem <div class='text-highlight'>Viva con Agua Portal</div> stellen wir dir eine zentrale Anlaufstelle zur Verfügung, über die du alle Web-Anwendungen (z.B. unsere Move4Water Web-App) nutzen kannst.<br/><br/>Um es dir als Nutzer*in einerseits möglichst einfach zu machen und dabei gleichzeitig hohe Sicherheit zu bieten, nutzen wir hierfür ein zentrales Login auf dem Viva con Agua Portal, das sogenannte Single Sign-On (SSO). SSO ist ein Authentifizierungsverfahren, bei dem sich Benutzer*innen auf sichere Weise an mehreren Anwendungen und Websites anmelden können, dabei jedoch nur ein einziges Mal ihre Zugangsdaten eingeben müssen. Dieses Verfahren kennst du vielleicht schon von großen Plattformen wie Google oder Facebook.<br/><br/>In diesem Fall registrierst du dich im ersten Schritt auf dem Viva con Agua Portal.<br/>Willst du dann eine Web-App von Viva con Agua nutzen, wirst du an das Portal als zentrale Anlaufstelle weitergeleitet, gibst deine Anmeldedaten an und wirst dann auf automatisch wieder zur Move4Water Web-App weitergeleitet, auf der du nun auch registriert bist ohne dich dort erneut registrieren zu müssen. Das Viva con Agua Portal leitet deine Registrationsdaten an die Web-Anwendungen weiter und nimmt dir sozusagen diese Arbeitsschritte ab. Der gleiche Prozess gilt dann auch für alle anderen neuen Anwendungen, für die du dich anmelden möchtest.<br/>Dabei wird jedoch im Viva con Agua Portal nur für die Web-Anwendungen ein Profil angelegt, die du natürlich auch nutzen möchtest.<br/>Zusammengefasst bedeutet das, dass du dich künftig mit deinen Benutzerdaten problemlos bei unseren Services anmelden kannst, ohne dir für jede Seite ein neues Konto anlegen zu müssen.<br/><br/><strong>Deine Daten werden dabei nur verschlüsselt übertragen, auf keinen Fall an Dritte weitergegeben und liegen dabei sicher auf unseren eigenen Servern - die nebenbei auch zu 100% mit Wasserkraft betrieben werden.</strong>"
     }
   },
   "logout": {
