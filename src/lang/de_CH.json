@@ -57,7 +57,7 @@
       },
       "error": {
         "email": "Deine E-Mail Adresse und dein Passwort passen nicht zusammen",
-        "password": "Das Token konnte nicht gefunden werden."
+        "password": "Deine E-Mail Adresse und dein Passwort passen nicht zusammen"
       }
     },
     "confirm_token": {
