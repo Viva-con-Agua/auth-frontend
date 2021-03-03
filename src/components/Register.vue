@@ -66,7 +66,11 @@
                 v-model="user.offset.newsletter">
                     <div class="highlight">{{ $t('sign.register.newsletter.title') }}</div> <span v-html="$t('sign.register.newsletter.text')"></span>
             </vca-checkbox>
-            <vca-known-from @input="changeKnown" :placeholder="$t('sign.register.known_from.placeholder')" ref="known_from" />
+            <br/>
+            <div class="select-known">
+                <vca-dropdown :label="$t('sign.register.known_from.label')" @input="changeKnown" :placeholder="$t('sign.register.known_from.placeholder')" ref="known_from" :options="known_options"/>
+            </div>
+
             <button
                 class="vca-button button"
                 @click.prevent="validate">
@@ -121,7 +125,16 @@ export default {
     },
     data () {
         return {
-            password_check: ''
+            password_check: '',            
+            known_options:
+            [
+                { title: this.$t('sign.register.known_from.select'), label: this.$t('sign.register.known_from.select'), value: "" },
+                { title: this.$t('sign.register.known_from.family_friends'),  label: this.$t('sign.register.known_from.family_friends'), value: "family_friends" },
+                { title: this.$t('sign.register.known_from.festivals_cupdonation'), label: this.$t('sign.register.known_from.festivals_cupdonation'), value: "festivals_cupdonation" },
+                { title: this.$t('sign.register.known_from.water'), label: this.$t('sign.register.known_from.water'), value: "water" },
+                { title: this.$t('sign.register.known_from.instagram'), label: this.$t('sign.register.known_from.instagram'), value: "instagram" },
+                { title: this.$t('sign.register.known_from.facebook'), label: this.$t('sign.register.known_from.facebook'), value: "facebook" }
+            ]
         }
     },
     validations: {

@@ -78,7 +78,8 @@
       "dataSecurity": "Privacy Policy",
       "imprint": "Imprint",
       "language": "Language",
-      "currency": "Currency"
+      "currency": "Currency",
+      "contact": "Contact"
     }
   },
   "header": {
@@ -140,7 +141,14 @@
         "text": "Click here if you want to have news and project updates by email.<br/>Comes about 1. a month and you can unsubscribe in each newsletter again. :) "
       },
       "known_from": {
-        "placeholder": "I know you from there"
+        "placeholder": "I know you from...",
+        "label": "This is how I became aware of you",
+        "select": "Please select",
+        "family_friends": "Family & friends",
+        "festivals_cupdonation": "Festivals & cup donations",
+        "water": "Water",
+        "instagram": "Instagram",
+        "facebook": "Facebook"
       }
     },
     "login": {
