@@ -17,6 +17,11 @@
             {{ $t("footer.legal.imprint") }}
           </a>
         </li>
+        <li>
+          <a href="mailto:support@vivaconagua.org" target="_blank">
+            {{ $t("footer.legal.contact") }}
+          </a>
+        </li>
       </ul>
       <div class="language-container">
         <div class="language-fit"><LanguageSelection /></div>
