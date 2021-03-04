@@ -16,11 +16,11 @@ export default {
         this.$store.dispatch({type: 'login/logoutReq'})
             .then(() => {
                 /* TODO change to this.callback when callback encoded */
-                window.location = 'https://www.move4water.org'
+                window.location = this.callback
            })
            .catch(() => {
                 /* TODO change to this.callback when callback encoded */
-                window.location = 'https://www.move4water.org'
+                window.location = this.callback
            })
     }
 }
