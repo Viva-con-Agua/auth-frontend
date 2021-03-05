@@ -57,6 +57,7 @@
       },
       "error": {
         "email": "Deine E-Mail Adresse und dein Passwort passen nicht zusammen",
+        "not_confirmed": "Deine E-Mail Adresse ist noch nicht bestätigt, bitte bestätige über den Link den du bekommen hast oder lasse dir einen neuen Link zusenden",
         "password": "Deine E-Mail Adresse und dein Passwort passen nicht zusammen"
       }
     },
