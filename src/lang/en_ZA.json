@@ -57,6 +57,7 @@
       },
       "error": {
         "email": "Your email address and password do not match",
+        "not_confirmed": "Your email address is not yet confirmed, please confirm via the link you received or have a new link sent to you",
         "password": "Your email address and password do not match"
       }
     },
