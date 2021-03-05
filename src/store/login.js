@@ -73,6 +73,11 @@ const login = {
                         title: "messages.title.error",
                         body: "messages.sign_in.error.password",
                         type: "error"
+                    },
+                    not_confirmed: {
+                        title: "messages.title.error",
+                        body: "messages.sign_in.error.not_confirmed",
+                        type: "error"
                     }
                 }
             },
@@ -141,7 +146,6 @@ const login = {
             return new Promise((resolve, reject) => {
                 apiSession.post('/v1/auth/login', state.credentials)
                     .then(response => {
-                        console.log(response.data)
                         commit('redirectData', response.data.payload), 
                             commit('cleanCredentials'),
                             resolve(response.data.payload)
@@ -149,8 +153,10 @@ const login = {
                     .catch(error => {
                         if (error.response.status === 404) {
                             reject(state.msg.sign_in.errors.email)
-                        } else if (error.response.status === 401) {
+                        } else if (error.response.status === 401 && error.response.data.message == 'invalid_password') {
                             reject(state.msg.sign_in.errors.password)
+                        } else if (error.response.status === 401 && error.response.data.message == 'not_confirmed') {
+                            reject(state.msg.sign_in.errors.not_confirmed)
                         }
                         reject(state.msg.defaults.errors.unknown)
                     })
