@@ -133,7 +133,7 @@
       },
       "privacy_policy": {
         "error": "Bitte bestätige, dass du die Datenschutzerklärung und die AGB zur Kenntnis genommen hast",
-        "text": "Ich habe die {0} und die {1} gelesen.",
+        "text": "Ich habe die {0} gelesen.",
         "privacy_policy": "Datenschutzerklärung",
         "tos": "AGB"
       },
