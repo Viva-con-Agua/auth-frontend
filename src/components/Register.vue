@@ -79,8 +79,8 @@
         </form>
         <div class="vca-center text-center">
             <h2>
-                <i18n path="sign.register.login">
-                    <span class="link" @click="login">{{ $t('sign.login.title') }}</span>
+                <i18n path="sign.register.login" class="typo-veneer">
+                    <span class="link typo-veneer" @click="login">{{ $t('sign.login.title') }}</span>
                 </i18n>
             </h2>
         </div>
@@ -103,7 +103,7 @@ export default {
         type: String,
         default: localStorage.language,
         validator: function (value) {
-          return ['de', 'ch', 'za'].indexOf(value) !== -1
+          return ['de-DE', 'de-CH', 'en-GB'].indexOf(value) !== -1
         }
       }
     },

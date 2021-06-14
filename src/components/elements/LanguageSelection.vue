@@ -1,9 +1,10 @@
 <template>
-  <div class="language-selection">
-    {{ $t("language.title") }} 
-    <div class="flag-cont" v-for="(lang, index) in languages" :key="index" @click="changeLanguage(lang)">
-      <country-flag class="flag-el" v-if="language == lang" :country="lang" size="normal"/>
-      <country-flag v-else :country="lang" size="small"/>
+  <div class="language-selection" :title="$t('language.title')">
+    <div class="flag-cont" :class="{flagInactive: (language != lang.lang)}" v-for="(lang, index) in languages" :key="index" @click="changeLanguage(lang.lang)">
+      <span v-if="language == lang.lang" class="flag-icon" :class="currentFlag"></span>
+      <div v-else>
+          <span class="flag-icon" :class="flag(lang.flag)"></span>
+      </div>
     </div>
   </div>
 </template>
@@ -12,55 +13,38 @@ export default {
   name: 'LanguageSelection',
   data() {
     return {
-      languages: ['de', 'ch', 'gb'],
+      languages: [ 
+        { "lang": "de-DE", "flag": "de" }, 
+        { "lang": "de-CH", "flag": "ch" }, 
+        { "lang": "en-GB", "flag": "gb" } 
+      ],
       language: localStorage.language
     }
   },
-  created() {
-
-    /* 
-     * Language priority - empty localStorage
-     * 1. If no language is already set, check for query
-     * 2. If no query is set, use default lang 
-     * Language priority - lang in localStorage
-     * 1. is localStorage differs from query, use query (I guess someone tried to change lang in query then - H4XX0RE S7YL3)
-     * 2. use localStorage
-     */
-
-    if (localStorage.language === undefined) {
-
-      if (this.$route.query.language != undefined && this.languages.includes(this.$route.query.language)) {
-        this.changeLanguage(this.$route.query.language)
-      } else {
-        this.changeLanguage(this.$i18n.locale.toLowerCase())
-      }
-
-    } else if (this.$route.query.language != undefined && localStorage.language != this.$route.query.language) {
-      this.changeLanguage(this.$route.query.language)
+  computed: {
+    currentFlag() {
+      let lang = this.languages.filter(row =>  row.lang == this.$i18n.locale )
+      return "flag-icon-" + lang[0].flag
     }
-
-    this.changeLanguage(localStorage.language)
+  },
+  created() {
+    if (localStorage.language === undefined) {
+      localStorage.language = this.$i18n.locale.toLowerCase()
+    } else {
+      this.$i18n.locale = localStorage.language
+    }
   },
   methods: {
     changeLanguage(language)  {
-
+      localStorage.language = language
       this.$i18n.locale = language
       this.language = language
-      localStorage.language = language
-      this.$store.commit('register/country', language)
-      /* We need to replace the language in the query if one is set to get a stringent language handling */
-      if (this.$route.query.language !== undefined && this.$route.query.language != language) {
-        this.$router.replace({query: {...this.$route.query, language: language}})
-      }
-    }
-  },    
-  watch :{
-    $route: function() {
-      if (this.$route.query.language !== undefined && localStorage.language != this.$route.query.language) {
-        this.changeLanguage(this.$route.query.language)
-      }
+      this.notification({title: "Language Change", body: "Language set to " + language, type: "success"})
     },
-  },
+    flag(lang) {
+      return 'flag-icon-' + lang
+    }
+  }
 };
 </script>
 <style lang="scss">
@@ -68,7 +52,11 @@ export default {
     .flag-cont {
       display: inline-block;
       cursor: pointer;
+      font-size: 1.2em;
       margin: 0 3px;
+    }
+    .flagInactive {
+      font-size: .7em;
     }
   }
 </style>

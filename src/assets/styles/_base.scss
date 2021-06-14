@@ -13,17 +13,33 @@ body {
   display: flex;
 }
 
-* {
-  box-shadow: none !important;
+#app {
+    margin: 0 auto;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    min-height: min-content;
 }
 
-.minus-margin {
-    margin: -1%;
-    overflow: hidden;
+#app-content {
+    flex-shrink: 0;
+    flex-grow: 1;
 }
 
-.welcome-button {
-  width: calc(100% - 15px) !important;
+#app-footer {
+    flex-shrink: 0;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
 }
 
 /*
@@ -41,6 +57,7 @@ $white: #FFFFFF;
 */
 
 $vca-primary-light: #b8d8ea;
+$vca-primary-dark: #002e6d;
 $vca-secondary-color: #55c0e9;
 $vca-secondary-darker: #03558c;
 $vca-red: #e50846;

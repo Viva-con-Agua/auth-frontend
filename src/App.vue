@@ -1,18 +1,18 @@
 <template>
   <div id="app">
     <notifications position="top center" width="100%"/>
-    <Navigation />
+    <CustomNavigation />
     <router-view class="app-content"/>
     <Footer class="app-footer"/>
   </div>
 </template>
 
 <script>
-import Navigation from '@/components/layout/Navigation.vue'
+import CustomNavigation from '@/components/layout/CustomNavigation.vue'
 import Footer from '@/components/layout/Footer.vue'
 export default {
   name: 'Auth',
-  components: { Navigation, Footer }
+  components: { CustomNavigation, Footer }
 }
 </script>
 
