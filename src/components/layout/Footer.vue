@@ -32,7 +32,7 @@
 </template>
 <script>
 
-//import LanguageSelection from "@/components/elements/LanguageSelection"
+//import LanguageSelection from "@/components/utils/LanguageSelection"
 export default {
   name: 'Footer'
   //components: { LanguageSelection }
