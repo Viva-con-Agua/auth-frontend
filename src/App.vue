@@ -15,3 +15,12 @@ export default {
   components: { CustomNavigation, Footer }
 }
 </script>
+<style lang="scss">
+    
+.link {
+  color: $main-color;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+</style>
