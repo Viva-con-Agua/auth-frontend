@@ -59,6 +59,9 @@ const routes = [
         component: loadView('ResetPassword'),
         meta: { requiresAuth: false },
         props: true
+    },
+    {
+        path: '*', redirect: { name: 'Register', query: {scope: 'move4water'}}
     }
 
 ]
