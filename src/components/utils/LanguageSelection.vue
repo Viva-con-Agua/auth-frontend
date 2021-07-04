@@ -1,6 +1,6 @@
 <template>
   <div class="language-selection" :title="$t('language.title')">
-    <div class="flag-cont" :class="{flagInactive: (language != lang.lang)}" v-for="(lang, index) in languages" :key="index" @click="changeLanguage(lang.lang)">
+    <div class="flag-cont" :class="{flagInactive: inActive(lang.lang)}" v-for="(lang, index) in languages" :key="index" @click="changeLanguage(lang.lang)">
       <span v-if="language == lang.lang" class="flag-icon" :class="currentFlag"></span>
       <div v-else>
           <span class="flag-icon" :class="flag(lang.flag)"></span>
@@ -21,9 +21,22 @@ export default {
       language: localStorage.language
     }
   },
+  watch: {
+      localStorage: {
+          handler(val) {
+            console.log(val)
+              this.$language = val
+              this.changeLanguage(val)
+          },
+          deep: true
+      }
+  },
   computed: {
     currentFlag() {
       let lang = this.languages.filter(row =>  row.lang == this.$i18n.locale )
+      if (lang == undefined) {
+        return "flag-icon-de"
+      }
       return "flag-icon-" + lang[0].flag
     }
   },
@@ -35,6 +48,12 @@ export default {
     }
   },
   methods: {
+    inActive(lang) {
+      if (!this.language) {
+        return true
+      }
+      return this.language.toLowerCase() != lang.toLowerCase()
+    },
     changeLanguage(language)  {
       localStorage.language = language
       this.$i18n.locale = language
@@ -44,7 +63,7 @@ export default {
       return 'flag-icon-' + lang
     }
   }
-};
+}
 </script>
 <style lang="scss">
   .language-selection {
@@ -54,6 +73,7 @@ export default {
       font-size: 1.2em;
       margin: 0 3px;
     }
+
     .flagInactive {
       font-size: .7em;
     }

@@ -102,7 +102,7 @@ export default {
         type: String,
         default: localStorage.language,
         validator: function (value) {
-          return ['de-DE', 'de-CH', 'en-GB'].indexOf(value) !== -1
+          return ['de-de', 'de-ch', 'en-gb'].indexOf(value) !== -1
         }
       }
     },

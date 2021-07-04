@@ -23,18 +23,18 @@
           </a>
         </li>
       </ul>
-      <!--div class="language-container">
+      <div class="language-container">
         <div class="language-fit"><LanguageSelection /></div>
-      </div-->
+      </div>
     </div>
 
   </div>
 </template>
 <script>
 
-//import LanguageSelection from "@/components/utils/LanguageSelection"
+import LanguageSelection from "@/components/utils/LanguageSelection"
 export default {
-  name: 'Footer'
-  //components: { LanguageSelection }
+  name: 'Footer',
+  components: { LanguageSelection }
 };
 </script>
