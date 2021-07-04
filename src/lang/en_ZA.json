@@ -133,7 +133,7 @@
       },
       "privacy_policy": {
         "error": "Please confirm that you have read the privacy policy and the terms and service",
-        "text": "I have read the {0} and the {1}.",
+        "text": "I have read the {0}.",
         "privacy_policy": "Privacy policy",
         "tos": "Terms of service"
       },

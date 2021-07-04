@@ -58,7 +58,6 @@
                 :errorMsg="$t('sign.register.privacy_policy.error')" > 
                     <i18n path="sign.register.privacy_policy.text">
                         <a href="https://www.vivaconagua.org/datenschutzerklaerung" target="_blank">{{ $t('sign.register.privacy_policy.privacy_policy') }}</a>
-                        <a href="https://www.vivaconagua.org/agb" target="_blank">{{ $t('sign.register.privacy_policy.tos') }}</a>
                     </i18n>
             </vca-checkbox>
 
