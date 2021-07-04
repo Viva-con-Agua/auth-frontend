@@ -50,6 +50,9 @@
                 v-model.trim="password_check" 
                 :rules="$v.password_check">
             </vca-input>
+            <div class="select-known">
+                <vca-dropdown :label="$t('sign.register.known_from.label')" @input="changeKnown" :placeholder="$t('sign.register.known_from.placeholder')" ref="known_from" :options="known_options"/>
+            </div>
 
             <vca-checkbox 
                 ref="privacy_policy"
@@ -65,10 +68,6 @@
                 v-model="user.offset.newsletter">
                     <div class="highlight">{{ $t('sign.register.newsletter.title') }}</div> <span v-html="$t('sign.register.newsletter.text')"></span>
             </vca-checkbox>
-            <br/>
-            <div class="select-known">
-                <vca-dropdown :label="$t('sign.register.known_from.label')" @input="changeKnown" :placeholder="$t('sign.register.known_from.placeholder')" ref="known_from" :options="known_options"/>
-            </div>
 
             <button
                 class="vca-button button"
