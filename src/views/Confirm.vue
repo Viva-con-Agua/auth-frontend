@@ -1,5 +1,5 @@
 <template>
-    <div id="confirm">
+    <div >
         {{ text }}
         <div v-if="error">
             <div>{{ $t('sign.login.resend') }}</div>

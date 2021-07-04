@@ -1,5 +1,5 @@
 <template>
-    <div id="sign-view" class="tabs-details">
+    <div class="tabs-details">
         <vca-card>
                     <Register/>
         </vca-card>

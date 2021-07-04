@@ -1,5 +1,5 @@
 <template>
-  <div id="header" class="header">
+  <div id="header" class="custom-header">
     <img src="~@/assets/img/vca_logo_neutral.png" title="Viva con Agua" />
     <h1>{{$t('header.sso')}}</h1>
     <vca-popup :show="moreInfo" @close="moreInfo = false" class="text-left" :title="$t('header.moreInfo.title')">
@@ -12,7 +12,7 @@
 
 <script>
 export default {
-  name: 'Navigation',
+  name: 'CustomNavigation',
   data() {
     return {
         moreInfo: false
@@ -22,16 +22,17 @@ export default {
 </script>
 <style lang="scss">
 
-.header {
+.custom-header {
+    text-align: center;
     img {
-        width: 100% !important;
+        width: 100%;
         @include media(large) {
-            width: auto !important;
+            width: auto;
         }
     }
     .link {
-        margin: auto !important;
-        width: max-content !important; 
+        margin: auto;
+        width: max-content; 
     }
 }
 
