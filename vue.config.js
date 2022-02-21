@@ -3,6 +3,7 @@ module.exports = {
     ? process.env.VUE_APP_CONTEXT
     : '/',
     devServer: {
+        public: 'login.localhost',
         disableHostCheck: true
     },
     css: {

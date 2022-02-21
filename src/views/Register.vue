@@ -17,7 +17,7 @@ export default {
         }
     },
     created() {
-        this.$store.commit('register/scope', this.scope)
+        //  this.$store.commit('register/scope', this.scope)
     },
     components: {
         Register, 

@@ -6,7 +6,7 @@
                 :errorMsg="$t('sign.reset_pw.email.error')"
                 @input="lower"
                 :placeholder="$t('sign.reset_pw.email.placeholder')"
-                v-model.trim="reset.email" 
+                v-model.trim="email" 
                 :rules="$v.reset.email">
             </vca-input>
             <button
@@ -21,19 +21,13 @@
 import { required, email } from 'vuelidate/lib/validators'
 export default {
     name: 'ResetPassword',
-    data() {
-        return {
-            login: false,
-            email: ''
-        }
-    },
     computed: {
-        reset: {
+        email: {
             get () {
-                return this.$store.state.login.resetPassword
+                return this.$store.state.login.reset_password.data.email
             },
             set (value) {
-                this.$store.commit('login/resetPassword', value)
+                this.$store.commit('login/reset_password/email', value)
             }
  
         }

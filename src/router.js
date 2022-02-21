@@ -31,7 +31,14 @@ const routes = [
         name: 'Login',
         component: loadView('LoginPage'),
         meta: { requiresAuth: false, title: "LoginPage" },
-        props: route => ({ scope: route.query.scope, language: route.query.language, callback: route.query.callback, msg: route.query.msg, source: route.query.source })
+        props: route => ({ login_challenge: route.query.login_challenge, language: route.query.language, callback: route.query.callback, msg: route.query.msg, source: route.query.source })
+    },
+    {
+        path: '/consent',
+        name: 'Consent',
+        component: loadView('ConsentPage'),
+        meta: { requiresAuth: false, title: "ConsentPage" },
+        props: route => ({ consent_challenge: route.query.consent_challenge })
     },
     {
         path: '/register',
@@ -64,7 +71,7 @@ const routes = [
 ]
 
 var router = new Router({
- //   mode: 'history',
+    mode: 'history',
     routes,
     scrollBehavior(to) {
         if (to.hash) {

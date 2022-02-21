@@ -4,17 +4,16 @@
             <vca-input
                 ref="email"
                 :errorMsg="$t('sign.register.email.error')"
-                @input="lower"
                 :placeholder="$t('sign.register.email.placeholder')"
-                v-model.trim="user.email" 
-                :rules="$v.user.email">
+                v-model.trim="email" 
+                :rules="$v.email">
             </vca-input>
             <vca-input
                 ref="display_name"
                 :errorMsg="$t('sign.register.displayname.error')"
                 :placeholder="$t('sign.register.displayname.placeholder')"
-                v-model.trim="user.display_name" 
-                :rules="$v.user.display_name">
+                v-model.trim="display_name" 
+                :rules="$v.display_name">
             </vca-input>
             <vca-field-row>
                 <vca-input 
@@ -22,16 +21,16 @@
                     first
                     :errorMsg="$t('sign.register.firstname.error')"
                     :placeholder="$t('sign.register.firstname.placeholder')"
-                    v-model.trim="user.first_name" 
-                    :rules="$v.user.first_name">
+                    v-model.trim="first_name" 
+                    :rules="$v.first_name">
                 </vca-input>
                 <vca-input
                     ref="last_name"
                     last
                     :errorMsg="$t('sign.register.lastname.error')"
                     :placeholder="$t('sign.register.lastname.placeholder')"
-                    v-model.trim="user.last_name" 
-                    :rules="$v.user.last_name">
+                    v-model.trim="last_name" 
+                    :rules="$v.last_name">
                 </vca-input>
             </vca-field-row>
             <vca-input
@@ -39,8 +38,8 @@
                 type="password"
                 :errorMsg="$t('sign.register.password1.error')"
                 :placeholder="$t('sign.register.password1.placeholder')"
-                v-model.trim="user.password" 
-                :rules="$v.user.password">
+                v-model.trim="password" 
+                :rules="$v.password">
             </vca-input>
             <vca-input
                 ref="password_check"
@@ -53,8 +52,8 @@
 
             <vca-checkbox 
                 ref="privacy_policy"
-                v-model="user.privacy_policy"
-                :rules="$v.user.privacy_policy"
+                v-model="privacy_policy"
+                :rules="$v.privacy_policy"
                 :errorMsg="$t('sign.register.privacy_policy.error')" > 
                     <i18n path="sign.register.privacy_policy.text">
                         <a href="https://www.vivaconagua.org/datenschutzerklaerung" target="_blank">{{ $t('sign.register.privacy_policy.privacy_policy') }}</a>
@@ -87,7 +86,6 @@
 </template>
 
 <script>
-import { required, email, sameAs } from 'vuelidate/lib/validators'
 export default {
     name: 'Register',
     props: {
@@ -109,12 +107,61 @@ export default {
     computed: {
         user: {
             get () {
-                return this.$store.state.register.user
+                return this.$store.state.register.form.data
             },
             set (value) {
                 this.$store.commit('register/user', value)
             }
         },
+        email: {
+            get () {
+                return this.$store.state.register.form.data.email
+            },
+            set (value) {
+                this.$store.commit('register/form/email', value)
+            }
+        },
+        password: {
+            get () {
+                return this.$store.state.register.form.data.password
+            },
+            set (value) {
+                this.$store.commit('register/form/password', value)
+            }
+        },
+        display_name: {
+            get () {
+                return this.$store.state.register.form.data.display_name
+            },
+            set (value) {
+                this.$store.commit('register/form/display_name', value)
+            }
+        },
+        first_name: {
+            get () {
+                return this.$store.state.register.form.data.first_name
+            },
+            set (value) {
+                this.$store.commit('register/form/first_name', value)
+            }
+        },
+        last_name: {
+            get () {
+                return this.$store.state.register.form.data.last_name
+            },
+            set (value) {
+                this.$store.commit('register/form/last_name', value)
+            }
+        },
+        privacy_policy: {
+            get () {
+                return this.$store.state.register.form.data.privacy_policy
+            },
+            set (value) {
+                this.$store.commit('register/form/privacy_policy', value)
+            }
+        },
+
         pwError () {
             if (this.$v.password_check.required && !this.$v.password_check.sameAs) {
                 return this.$t('sign.register.password2.error.same')
@@ -136,35 +183,11 @@ export default {
             ]
         }
     },
-    validations: {
-        user: {
-            email: {
-                required,
-                email
-            },
-            password: {
-                required
-            },
-            display_name: {
-                required
-            },
-            first_name: {
-                required
-            },
-            last_name: {
-                required
-            },             
-            privacy_policy: {
-                sameAs: sameAs( () => true ) 
-            }
-        },
-        password_check: {
-            required,
-            sameAs: sameAs(function () { return this.user.password })
-        }
+    validations() {
+        return this.$store.getters['register/form/validations']
     },
     created() {
-        this.$store.commit('register/scope', this.$route.query.scope)
+        this.$store.commit('register/login_challenge', this.$route.query.login_challenge)
         this.$i18n.locale = this.$route.query.language
     },
     methods: {
@@ -183,7 +206,7 @@ export default {
         },
         submit() {
             //this.$store.commit('loadingFlow')
-            this.$store.dispatch({type: 'register/register'})
+            this.$store.dispatch({type: 'register/form/register'})
                 .then((data)=> {
                     if (data.payload.message === "no_token") {
                         /* TODO get scope from data.scope */
@@ -199,9 +222,6 @@ export default {
                 .catch ((error) => {
                     this.notification(error)
                 })
-        },
-        lower() {
-            this.user.email = this.user.email.toLowerCase()
         },
         changeKnown(nVal) {
             if (nVal.length > 0) {

@@ -22,8 +22,8 @@ export default {
         }
     },
     created() {
-        this.$store.commit('register/scope', this.scope)
-        this.$store.commit('callback', this.callback)
+        // this.$store.commit('register/scope', this.scope)
+        //this.$store.commit('callback', this.callback)
     },
     components: {
         Register

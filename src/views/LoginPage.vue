@@ -22,7 +22,7 @@ export default {
     name: 'LoginView',
     components: { Login, NewToken, ResetPassword },
     props: {
-        scope: {
+        login_challenge: {
             type: String,
             default: ""
         },
@@ -37,8 +37,14 @@ export default {
         }
     },
     created() {
-        this.$store.commit('login/scope', this.scope)
-        this.$store.commit('callback', this.callback)
+        this.$store.commit('login/login_challenge', this.login_challenge)
+        this.$store.dispatch('login/login_challenge')
+            .then((response) =>{
+                window.location = response.redirect_to
+            })
+            .catch((error) => {
+                this.notification(error)
+            })
     }
 }
 </script>
