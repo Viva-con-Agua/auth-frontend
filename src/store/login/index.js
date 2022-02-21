@@ -8,7 +8,8 @@ const login = {
     state: () => ({
         challenge: {
             challenge: null
-        }    
+        },
+        user: null
     }),
     mutations: {
         login_challenge(state, val) {
@@ -17,6 +18,9 @@ const login = {
         },
         consent_challenge(state, val) {
             state.challenge.challenge = val
+        },
+        user(state, val) {
+            state.user = val
         }
     },
     actions: {
@@ -46,10 +50,21 @@ const login = {
                         reject()
                     })
             })
+        },
+        refresh({commit}) {
+            return new Promise((resolve, reject) => {
+                api.get('/auth/refresh')
+                    .then((response) => {
+                        commit("user", response.payload)
+                        resolve()
+                    })
+                    .catch((error) => {
+                        reject(error)
+                    })
+                
+                })
         }
-
     }
-
 
 }
 export default login

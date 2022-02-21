@@ -8,7 +8,7 @@ const register = {
     },
     mutations: {
         login_challenge(state, val) {
-            state.form.login_challenge = val    
+            state.form.data.login_challenge = val    
         }
     }
 }

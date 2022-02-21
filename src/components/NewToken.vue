@@ -6,8 +6,8 @@
                 :errorMsg="$t('sign.new_token.email.error')"
                 @input="lower"
                 :placeholder="$t('sign.new_token.email.placeholder')"
-                v-model.trim="reset.email" 
-                :rules="$v.reset.email">
+                v-model.trim="email" 
+                :rules="$v.email">
             </vca-input>
             <button
                 class="vca-button"
@@ -22,22 +22,20 @@ import { required, email } from 'vuelidate/lib/validators'
 export default {
     name: 'NewToken',
     computed: {
-        reset: {
+        email: {
             get () {
-                return this.$store.state.login.resetPassword
+                return this.$store.state.register.confirmation.reset.email
             },
             set (value) {
-                this.$store.commit('login/resetPassword', value)
+                this.$store.commit('register/confirmation/reset', value)
             }
  
         }
     },
     validations: {
-        reset: {
             email: {
                 required,
                 email
-            }
         }
     },
     methods: {
@@ -49,7 +47,7 @@ export default {
             }
         },
         submit() {
-            this.$store.dispatch({type: 'login/resetConfirmationToken'})
+            this.$store.dispatch({type: 'register/confirmation/reset'})
                 .then((response) => {
                     this.notification(response)
                 })
@@ -61,7 +59,7 @@ export default {
                 })
         },
         lower() {
-            this.reset.email = this.reset.email.toLowerCase()
+            this.email = this.email.toLowerCase()
         }
     }
 }

@@ -1,5 +1,5 @@
 import { required, email } from 'vuelidate/lib/validators'
-import apiSession from "../api"
+import api from "../api"
 const credentials = {
     namespaced: true,
     state: () => ({
@@ -62,7 +62,7 @@ const credentials = {
     actions: {
         submit({state}) {
             return new Promise((resolve, reject) => {
-                apiSession.post('/auth/login', state.data)
+                api.post('/auth/login', state.data)
                     .then(response => {
                         resolve(response.data.Payload)
                     })

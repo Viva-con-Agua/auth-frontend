@@ -1,10 +1,9 @@
 <template>
     <div id="sign-view" class="tabs-details">
         <vca-card>
-            <Login v-if="flow == 'login'"/>
+            <LoginForm v-if="flow == 'login'"/>
             <ResetPassword v-if="flow == 'pw_reset'"/>
             <NewToken v-if="flow == 'resend'"/>
-
             <vca-field-row>
                 <button v-if="flow != 'login'"  @click="flow = 'login'" class="vca-button-small">{{ $t('sign.login.title') }}</button>
                 <button v-if="flow != 'pw_reset'" @click="flow = 'pw_reset'" class="vca-button-small">{{ $t('sign.login.reset_pw') }}</button>
@@ -15,12 +14,12 @@
 </template>
 <script>
 
-import Login from '@/components/Login'
+import LoginForm from '@/components/LoginForm'
 import ResetPassword from '@/components/ResetPassword'
 import NewToken from '@/components/NewToken'
 export default {
-    name: 'LoginView',
-    components: { Login, NewToken, ResetPassword },
+    name: 'LoginPage',
+    components: { LoginForm, NewToken, ResetPassword },
     props: {
         login_challenge: {
             type: String,
@@ -37,14 +36,24 @@ export default {
         }
     },
     created() {
+        if (this.login_challenge !== "" ) {
         this.$store.commit('login/login_challenge', this.login_challenge)
         this.$store.dispatch('login/login_challenge')
             .then((response) =>{
-                window.location = response.redirect_to
+                if (response.redirect_to !== undefined) {
+                    window.location = response.redirect_to
+                }
             })
             .catch((error) => {
                 this.notification(error)
             })
+        } else {
+            this.$store.dispatch('login/refresh')
+                .then(() => {
+                    this.$router.push("webapps")
+                })
+                .catch()
+        }
     }
 }
 </script>

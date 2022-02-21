@@ -68,21 +68,13 @@
             <div class="select-known">
                 <vca-dropdown :label="$t('sign.register.known_from.label')" @input="changeKnown" :placeholder="$t('sign.register.known_from.placeholder')" ref="known_from" :options="known_options"/>
             </div>
-
             <button
                 class="vca-button button"
                 @click.prevent="validate">
                 {{ $t('sign.register.title') }}
             </button>
         </form>
-        <div class="vca-center text-center">
-            <h2>
-                <i18n path="sign.register.login">
-                    <span class="link" @click="login">{{ $t('sign.login.title') }}</span>
-                </i18n>
-            </h2>
-        </div>
-    </div>
+            </div>
 </template>
 
 <script>
@@ -208,15 +200,10 @@ export default {
             //this.$store.commit('loadingFlow')
             this.$store.dispatch({type: 'register/form/register'})
                 .then((data)=> {
-                    if (data.payload.message === "no_token") {
-                        /* TODO get scope from data.scope */
-                        this.$router.push({name: "Login", query: {scope: 'move4water', msg: data.message, source: 'register'}})
+                    if (data.hydra !== null) {
+                        window.location = data.redirect_to
                     } else {
-                        if (this.$store.getters.callback !== 'null' || this.$store.getters.callback !== null) {
-                            window.location = data.payload.redirect_url + "?code=" + data.payload.code + "&callback=" + this.$store.getters.callback
-                        } else {
-                            window.location = data.payload.redirect_url + "?code=" + data.payload.code
-                        }
+                        this.$router.push({name: 'Login'})
                     }
                 })
                 .catch ((error) => {
@@ -229,9 +216,6 @@ export default {
             } else {
                 this.user.offset.known_from = "UNKOWN"
             }
-        },
-        login() {
-            this.$router.push({name: 'Login', query: { scope: this.$route.query.scope, language: this.$route.query.language }})
         }
     }
 }

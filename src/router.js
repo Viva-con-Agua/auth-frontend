@@ -1,5 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+import RegisterPage from '@/views/RegisterPage'
+import LoginPage from '@/views/LoginPage'
+import WebAppPage from '@/views/WebAppPage'
+import LandingPage from '@/views/LandingPage'
 //import store from './store'
 Vue.use(Router)
 /**
@@ -23,49 +27,60 @@ function loadView(view) {
 
 const routes = [
     {
-        path: '/', redirect: { name: 'Register', query: {scope: 'move4water'}}
-        
-    },
-    {
-        path: '/login',
-        name: 'Login',
-        component: loadView('LoginPage'),
-        meta: { requiresAuth: false, title: "LoginPage" },
-        props: route => ({ login_challenge: route.query.login_challenge, language: route.query.language, callback: route.query.callback, msg: route.query.msg, source: route.query.source })
-    },
-    {
-        path: '/consent',
-        name: 'Consent',
-        component: loadView('ConsentPage'),
-        meta: { requiresAuth: false, title: "ConsentPage" },
-        props: route => ({ consent_challenge: route.query.consent_challenge })
-    },
-    {
-        path: '/register',
-        name: 'Register',
-        component: loadView('Register'),
-        meta: { requiresAuth: false, title: "RegisterPage" },
-        props: route => ({ scope: route.query.scope, language: route.query.language, callback: route.query.callback })
+        path: '/',
+        name: 'LandingPage',
+        component: LandingPage,
+        meta: { requiresAuth: false, title: "LandingView" },
+        children: [
+            {
+                path: '',
+                name: 'WebAppPage',
+                component: WebAppPage,
+                meta: { requiresAuth: false, title: "LoginPage" },
+                props: route => ({ login_challenge: route.query.login_challenge, language: route.query.language, callback: route.query.callback, msg: route.query.msg, source: route.query.source })
+            },
+            {
+                path: 'login',
+                name: 'Login',
+                component: LoginPage,
+                meta: { requiresAuth: false, title: "LoginPage" },
+                props: route => ({ login_challenge: route.query.login_challenge, language: route.query.language, callback: route.query.callback, msg: route.query.msg, source: route.query.source })
+            },
+            {
+                path: 'consent',
+                name: 'Consent',
+                component: loadView('ConsentPage'),
+                meta: { requiresAuth: false, title: "ConsentPage" },
+                props: route => ({ consent_challenge: route.query.consent_challenge })
+            },
+            {
+                path: 'register',
+                name: 'Register',
+                component: RegisterPage,
+                meta: { requiresAuth: false, title: "RegisterPage" },
+                props: route => ({ login_challenge: route.query.login_challenge, language: route.query.language, callback: route.query.callback })
 
-    },
-    {
-        path: '/confirm/:code',
-        name: 'Confirm',
-        component: loadView('Confirm'),
-        props: true
-    },
-    {
-        path: '/logout',
-        name: 'Logout',
-        component: loadView('Logout'),
-        props: route => ({ callback: route.query.callback })
-    },    
-    {
-        path: '/reset/:token',
-        name: 'PasswordReset',
-        component: loadView('ResetPassword'),
-        meta: { requiresAuth: false },
-        props: true
+            },
+            {
+                path: 'confirm/:code',
+                name: 'Confirm',
+                component: loadView('Confirm'),
+                props: true
+            },
+            {
+                path: 'logout',
+                name: 'Logout',
+                component: loadView('Logout'),
+                props: route => ({ callback: route.query.callback })
+            },    
+            {
+                path: 'reset/:token',
+                name: 'PasswordReset',
+                component: loadView('ResetPassword'),
+                meta: { requiresAuth: false },
+                props: true
+            }
+        ]
     }
 
 ]

@@ -98,9 +98,9 @@ const form = {
     actions: {
         register({state}) {
             return new Promise((resolve, reject) => {
-                apiSession.post('/auth/register', state.user)
+                apiSession.post('/auth/register', state.data)
                     .then(response => {
-                        resolve(response.data)
+                        resolve(response.data.payload)
                     })
                     .catch(error => {
                         if (error.response.status === 409) {
