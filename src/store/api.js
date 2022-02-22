@@ -1,4 +1,3 @@
-import router from '@/router'
 import axios from 'axios'
 var api = axios.create({
     baseURL: process.env.VUE_APP_BACKEND_URL,
@@ -19,7 +18,6 @@ api.interceptors.response.use((response) => {
         if (error.config.url == '/auth/refresh' ) {
             return new Promise((_, reject) => {
                 reject(error);
-                router.push('/logout')
             });
         }
         return new Promise((resolve, reject) => 
@@ -31,15 +29,11 @@ api.interceptors.response.use((response) => {
                             resolve(response);
                         }).catch((error) => {
                             reject(error)
-                            router.push('/login')
                         })
                     }
                 }).catch((error) => {
                     reject(error)
-                    router.push('/login')
                 })
         )
     })
-
-
 export default api

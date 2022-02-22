@@ -1,7 +1,7 @@
 <template>
     <div id="sign-view" class="tabs-details">
         <vca-card>
-            <LoginForm v-if="flow == 'login'"/>
+            <LoginForm v-if="flow == 'login'" @success="success"/>
             <ResetPassword v-if="flow == 'pw_reset'"/>
             <NewToken v-if="flow == 'resend'"/>
             <vca-field-row>
@@ -37,7 +37,21 @@ export default {
     },
     created() {
         if (this.login_challenge !== "" ) {
-        this.$store.commit('login/login_challenge', this.login_challenge)
+            this.$store.commit('login/login_challenge', this.login_challenge)
+            this.login()
+        }{
+            this.refresh
+        }
+    },
+    methods: {
+        success() {
+            if (this.login_challenge !== "") {
+                this.login()
+            } else {
+                this.$router.push({name: "WebAppPage"})
+            }
+        },
+        login() {
         this.$store.dispatch('login/login_challenge')
             .then((response) =>{
                 if (response.redirect_to !== undefined) {
@@ -47,12 +61,17 @@ export default {
             .catch((error) => {
                 this.notification(error)
             })
-        } else {
+        },
+        refresh() {
             this.$store.dispatch('login/refresh')
                 .then(() => {
-                    this.$router.push("webapps")
+                    this.$router.push({name: "WebAppPage"})
                 })
-                .catch()
+                .catch((error)=>{
+                    if (error != null) {
+                        this.notification(error)
+                    }
+                })
         }
     }
 }

@@ -1,4 +1,5 @@
 import api from '@/store/api.js'
+import axios from 'axios'
 import credentials from './credentials'
 const login = {
     namespaced: true,
@@ -32,7 +33,7 @@ const login = {
                         resolve(response.data.Payload)
                     })
                     .catch(error => {
-                        
+
                         console.log(error)
                         reject()
                     })
@@ -52,17 +53,41 @@ const login = {
             })
         },
         refresh({commit}) {
+            var api_refresh = axios.create({
+                baseURL: process.env.VUE_APP_BACKEND_URL,
+                withCredentials: true,
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
             return new Promise((resolve, reject) => {
-                api.get('/auth/refresh')
+                api_refresh.get('/auth/refresh')
                     .then((response) => {
                         commit("user", response.payload)
                         resolve()
                     })
                     .catch((error) => {
+                        if (error.response.status == 401) {
+                            reject(null)
+                        }
                         reject(error)
                     })
-                
-                })
+
+            })
+        },
+        logout() {
+            return new Promise((resolve, reject) => {
+                api.get('/auth/logout')
+                    .then((response) => {
+                        console.log(response)
+                        resolve()
+                    })
+                    .catch((error) => {
+                        reject(error)
+                    })
+
+            })
+
         }
     }
 

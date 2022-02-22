@@ -80,11 +80,10 @@ export default {
         },
         submit(){
             this.$store.dispatch('login/credentials/submit')
-                .then((response) => {
-                console.log(response)
-                window.location = response.redirect_to
-            })
-                       .catch ((error) => {
+                .then(() => {
+                    this.$emit("success")
+                })
+                .catch ((error) => {
                     this.notification(error)
                 })
         },

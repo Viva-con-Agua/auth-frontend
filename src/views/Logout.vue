@@ -9,11 +9,11 @@ export default {
     props:{
         callback: {
             type: String,
-            default: "/#/login?scope=move4water"
+            default: "/login"
         }
     },
     created () {
-        this.$store.dispatch({type: 'login/logoutReq'})
+        this.$store.dispatch({type: 'login/logout'})
             .then(() => {
                 /* TODO change to this.callback when callback encoded */
                 window.location = this.callback

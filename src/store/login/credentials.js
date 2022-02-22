@@ -44,7 +44,11 @@ const credentials = {
         },
         login_challenge(state, val) {
             state.data.login_challenge = val
+        },
+        user(rootState, val) {
+            rootState.user = val
         }
+
     },
     getters: {
         validations() {
@@ -60,11 +64,12 @@ const credentials = {
         }
     },
     actions: {
-        submit({state}) {
+        submit({state, commit}) {
             return new Promise((resolve, reject) => {
                 api.post('/auth/login', state.data)
                     .then(response => {
-                        resolve(response.data.Payload)
+                        commit("user", response.payload)
+                        resolve()
                     })
                     .catch(error => {
                         if (error.response.status === 404) {

@@ -13,7 +13,8 @@ export default new Vuex.Store({
         webapp: webapp
     },
     state: {
-        callback: null
+        callback: null,
+        user: null
     },
     getters: {
         callback(state) {
@@ -23,6 +24,9 @@ export default new Vuex.Store({
     mutations: {
         callback(state, value) {
             state.callback = value
+        },
+        clear(state) {
+            state.user = null
         }
 
     }
