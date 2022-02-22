@@ -40,7 +40,7 @@ export default {
             this.$store.commit('login/login_challenge', this.login_challenge)
             this.login()
         }{
-            this.refresh
+            this.refresh()
         }
     },
     methods: {

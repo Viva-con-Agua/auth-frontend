@@ -1,0 +1,96 @@
+version: '3.7'
+
+services:
+  hydra:
+    image: oryd/hydra:v1.10.6
+    restart: always
+    environment:
+      - DSN=postgres://hydra:secret@postgresd:5432/hydra?sslmode=disable&max_conns=20&max_idle_conns=4
+    command:
+      serve -c /etc/config/hydra/${hydra_config} all --dangerous-force-http
+    links:
+      - postgresd:postgresd
+    volumes:
+      -
+        type: bind
+        source: ./${hydra_config}
+        target: /etc/config/hydra/${hydra_config}
+    depends_on:
+      - hydra-migrate
+    networks:
+      default:
+        ipv4_address: 172.4.4.2
+      domain:
+        ipv4_address: ${hydra_ip}
+
+  hydra-migrate:
+    image: oryd/hydra:v1.10.6
+    environment:
+      - DSN=postgres://hydra:secret@postgresd:5432/hydra?sslmode=disable&max_conns=20&max_idle_conns=4
+    command:
+       migrate -c /etc/config/hydra/${hydra_config} sql -e --yes
+    links:
+      - postgresd:postgresd
+    volumes:
+      -
+        type: bind
+        source: ./${hydra_config}
+        target: /etc/config/hydra/${hydra_config}
+    networks:
+      default:
+        ipv4_address: 172.4.4.3
+
+  postgresd:
+    image: postgres
+    restart: always
+    environment:
+      - POSTGRES_USER=hydra
+      - POSTGRES_PASSWORD=secret
+      - POSTGRES_DB=hydra
+    networks:
+      default:
+        ipv4_address: 172.4.4.4
+
+  auth-frontend:
+    image: vivaconagua/auth-frontend:latest
+    build: .
+    restart: always
+    env_file:
+      - .env
+    networks:
+      default: 
+        ipv4_address: 172.4.4.5
+      domain:
+        ipv4_address: ${frontend_ip}
+
+  auth-service:
+    image: vivaconagua/auth-service:${version_auth}
+    restart: unless-stopped
+    env_file:
+      - .env
+    links:
+      - auth-service-db:db
+    networks:
+      default:
+        ipv4_address: 172.4.4.6
+      domain:
+        ipv4_address: ${auth_ip}
+  
+
+  auth-service-db:
+    image: mongo
+    restart: unless-stopped
+    volumes:
+      - ${databases}/auth-service-db/:/data/db/
+    networks:
+      default:
+        ipv4_address: 172.4.4.7
+
+networks:
+  default:
+    external: true
+    name: auth_net
+
+  domain:
+    external: true
+    name: domain_net

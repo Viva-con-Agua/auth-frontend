@@ -18,7 +18,7 @@ export default {
     created(){
         this.$store.dispatch("webapp/list")
             .catch(() => {
-                       this.$route.push("login")
+                       this.$router.push("login")
                    })
     }
 }
