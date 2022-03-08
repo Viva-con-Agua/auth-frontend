@@ -27,8 +27,8 @@
         </form>
         <div class="vca-center text-center">
             <h2>
-                <i18n path="sign.login.register">
-                    <span class="link" @click="register">{{ $t('sign.register.title') }}</span>
+                <i18n path="sign.login.register" class="typo-veneer">
+                    <span class="link typo-veneer" @click="register">{{ $t('sign.register.title') }}</span>
                 </i18n>
             </h2>
         </div>

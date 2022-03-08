@@ -50,6 +50,9 @@
                 v-model.trim="password_check" 
                 :rules="$v.password_check">
             </vca-input>
+            <div class="select-known">
+                <vca-dropdown :label="$t('sign.register.known_from.label')" @input="changeKnown" :placeholder="$t('sign.register.known_from.placeholder')" ref="known_from" :options="known_options"/>
+            </div>
 
             <vca-checkbox 
                 ref="privacy_policy"
@@ -65,10 +68,6 @@
                 v-model="user.offset.newsletter">
                     <div class="highlight">{{ $t('sign.register.newsletter.title') }}</div> <span v-html="$t('sign.register.newsletter.text')"></span>
             </vca-checkbox>
-            <br/>
-            <div class="select-known">
-                <vca-dropdown :label="$t('sign.register.known_from.label')" @input="changeKnown" :placeholder="$t('sign.register.known_from.placeholder')" ref="known_from" :options="known_options"/>
-            </div>
 
             <button
                 class="vca-button button"
@@ -78,8 +77,8 @@
         </form>
         <div class="vca-center text-center">
             <h2>
-                <i18n path="sign.register.login">
-                    <span class="link" @click="login">{{ $t('sign.login.title') }}</span>
+                <i18n path="sign.register.login" class="typo-veneer">
+                    <span class="link typo-veneer" @click="login">{{ $t('sign.login.title') }}</span>
                 </i18n>
             </h2>
         </div>
@@ -102,7 +101,7 @@ export default {
         type: String,
         default: localStorage.language,
         validator: function (value) {
-          return ['de', 'ch', 'za'].indexOf(value) !== -1
+          return ['de-de', 'de-ch', 'en-gb'].indexOf(value) !== -1
         }
       }
     },

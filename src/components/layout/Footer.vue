@@ -27,43 +27,20 @@
         <div class="language-fit"><LanguageSelection /></div>
       </div>
     </div>
-
   </div>
 </template>
 <script>
 
-import LanguageSelection from "@/components/elements/LanguageSelection"
+import LanguageSelection from "@/components/utils/LanguageSelection"
 export default {
   name: 'Footer',
   components: { LanguageSelection }
 };
 </script>
 <style lang="scss">
-
 .legal {
-  display: flex;
-  color: $white;
-  height: 220px;
-  background-color: $dark_blue;
-  bottom: 0;
-  flex-wrap: wrap;
-
-  a {
-    text-decoration: none;
-    list-style-type: none;
-    color: $white;
-  }
-  a:hover {
-    text-decoration: underline;
-  }
-
-  @include media(large) {
-    flex-wrap: nowrap;
-    padding: 10px 10px;
-    height: 80px;
-  }
+  padding-bottom: 30px;
 }
-
 .language-container {
   padding-right: 15px;
   position: relative;
@@ -82,35 +59,4 @@ export default {
     justify-content: flex-end;
   }
 }
-.links {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 100%;
-  margin-top: 0;
-  margin-bottom: 0;
-
-  li {
-    list-style: none;
-  }
-
-  li a {
-    display: block;
-    padding: 10px 10px;
-  }
-
-  @include media(large) {
-    float: left;
-    flex-direction: row;
-    justify-content: unset;
-    flex-basis: 100%;
-
-    li {
-      margin-top: auto;
-      margin-bottom: auto;
-    }
-  }
-
-}
-
 </style>
