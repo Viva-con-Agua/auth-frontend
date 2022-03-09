@@ -7,7 +7,7 @@ import 'vca-ui/dist/vca-ui.css'
 import store from './store'
 import VueI18n from 'vue-i18n'
 import Notifications from 'vue-notification'
-import CountryFlag from 'vue-country-flag'
+import FlagIcon from 'vue-flag-icon'
 import ch from '@/lang/de_CH.json';
 import de from '@/lang/de_DE.json';
 import za from '@/lang/en_ZA.json';
@@ -15,10 +15,9 @@ import gb from '@/lang/en_GB.json';
 
 Vue.use(Vuelidate)
 Vue.use(VcaUi)
+Vue.use(FlagIcon)
 Vue.use(VueI18n)
 Vue.use(Notifications)
-
-Vue.component('country-flag', CountryFlag)
 
 Vue.config.productionTip = false
 
