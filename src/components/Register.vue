@@ -131,7 +131,8 @@ export default {
                 { title: this.$t('sign.register.known_from.festivals_cupdonation'), label: this.$t('sign.register.known_from.festivals_cupdonation'), value: "festivals_cupdonation" },
                 { title: this.$t('sign.register.known_from.water'), label: this.$t('sign.register.known_from.water'), value: "water" },
                 { title: this.$t('sign.register.known_from.instagram'), label: this.$t('sign.register.known_from.instagram'), value: "instagram" },
-                { title: this.$t('sign.register.known_from.facebook'), label: this.$t('sign.register.known_from.facebook'), value: "facebook" }
+                { title: this.$t('sign.register.known_from.facebook'), label: this.$t('sign.register.known_from.facebook'), value: "facebook" },
+                { title: this.$t('sign.register.known_from.other'), label: this.$t('sign.register.known_from.other'), value: "other" }
             ]
         }
     },
