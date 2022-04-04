@@ -16,6 +16,10 @@ export default {
 }
 </script>
 <style lang="scss">
+
+#app-footer {
+  z-index: 50 !important;
+}
     
 .link {
   color: $main-color;
